@@ -1,0 +1,11 @@
+/* Estilos para a barra de rolagem (opcional, mas adiciona um toque moderno) */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+body::-webkit-scrollbar-track {
+    background: #1e293b; /* slate-800 */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #3b82f6; /* blue-500 */
+    border-radius: 20px;
+}
