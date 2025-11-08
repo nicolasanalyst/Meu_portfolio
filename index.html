@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicolas Villela | Portfólio</title>
-    <!-- Tailwind CSS CDN -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon (Emoji) -->
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
     
-    <!-- Link para o seu arquivo CSS -->
+  
     <link rel="stylesheet" href="style.css">
 
     <script>
-        // Configuração do tema escuro padrão para o Tailwind
+        
         tailwind.config = {
-            darkMode: 'class', // Ativa o modo escuro manual ou baseado na classe
+            darkMode: 'class', 
             theme: {
                 extend: {
                     fontFamily: {
@@ -33,16 +33,16 @@
 
 <body class="bg-slate-900 text-slate-200 font-sans antialiased">
 
-    <!-- ===== SEÇÃO DO CABEÇALHO / NAVEGAÇÃO ===== -->
+   
     <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Seu nome ou logo -->
+            
             <a href="#" class="flex items-baseline gap-2">
                 <span class="text-xl font-bold text-blue-400 hover:text-blue-500 transition-colors">Nicolas Villela</span>
                 <span class="text-base text-slate-300">Product Designer</span>
             </a>
 
-            <!-- Links de navegação para Desktop -->
+          
             <div class="hidden md:flex items-center space-x-6">
                 <a href="#home" class="hover:text-blue-400 transition-colors">Início</a>
                 <a href="#projetos" class="hover:text-blue-400 transition-colors">Projetos</a>
@@ -50,7 +50,7 @@
                 <a href="#contato" class="hover:text-blue-400 transition-colors">Contato</a>
             </div>
 
-            <!-- Botão do Menu Mobile -->
+          
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -58,7 +58,7 @@
             </button>
         </nav>
         
-        <!-- Menu Mobile (oculto por padrão) -->
+        
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#home" class="block hover:text-blue-400 transition-colors">Início</a>
             <a href="#projetos" class="block hover:text-blue-400 transition-colors">Projetos</a>
@@ -69,41 +69,40 @@
 
     <main class="container mx-auto px-6 py-12 md:py-20">
 
-        <!-- ===== SEÇÃO PRINCIPAL (HERO) ===== -->
+       
         <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-            <!-- Informações de texto -->
+            
             <div class="md:w-1/2 text-center md:text-left">
                 <span class="text-blue-400 font-semibold">Olá, eu sou</span>
-                <!-- EDITE SEU NOME AQUI -->
+                
                 <h1 class="text-4xl md:text-6xl font-bold text-white mt-2 mb-4">Nicolas Villela</h1>
-                <!-- EDITE SUA PROFISSÃO AQUI -->
+                
                 <h2 class="text-2xl text-slate-300">Product Designer | UI/UX</h2>
                 <p class="mt-4 text-slate-400 max-w-lg mx-auto md:mx-0">
-                    <!-- EDITE SUA BIO CURTA AQUI -->
+                    
                     Transformo ideias em realidade digital com código limpo e design intuitivo. Apaixonado por tecnologia e por criar experiências memoráveis para os usuários.
                 </p>
                 <div class="mt-8 flex justify-center md:justify-start gap-4">
                     <a href="#contato" class="py-3 px-6 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors shadow-lg">Entre em Contato</a>
-                    <!-- EDITE O 'href' ABAIXO COM O LINK PARA O SEU CURRÍCULO (ex: ./curriculo.pdf) -->
+                    
                     <a href="Img/CV Nicolas Silva.pdf" target="_blank" class="py-3 px-6 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-semibold transition-colors shadow-lg">Currículo</a>
                 </div>
             </div>
 
-            <!-- Sua Foto -->
             <div class="md:w-1/3 w-2/3">
-                <!-- COLOQUE O LINK DA SUA FOTO AQUI no 'src' -->
+                
                 <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="aspect-square rounded-full shadow-2xl shadow-blue-500/20 w-full object-cover">
             </div>
         </section>
 
-        <!-- ===== SEÇÃO SOBRE MIM ===== -->
+      
         <section id="sobre" class="py-20 md:py-32">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
                 Sobre Mim
             </h2>
             <div class="flex flex-col items-center justify-center">
                 <div class="max-w-3xl text-slate-300 space-y-4 text-center">
-                     <!-- EDITE O TEXTO SOBRE VOCÊ AQUI -->
+                   
                     <p>
                         Sou Product Designer com uma missão clara: criar produtos digitais que não apenas atendam às necessidades do negócio, mas que também ofereçam experiências significativas e intuitivas para as pessoas. Acredito que a tecnologia deve ser uma ponte para facilitar o dia a dia, e meu trabalho é construir essas pontes com empatia e estratégia.
                     </p>
@@ -114,23 +113,22 @@
             </div>
         </section>
 
-        <!-- ===== SEÇÃO DE PROJETOS ===== -->
+ 
         <section id="projetos" class="py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
                 Meus Projetos
             </h2>
             
-              <!-- Grid de projetos -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- PROJETO 1: Edite as informações abaixo -->
+                
                 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg">
-                    <!-- Imagem do Projeto -->
+                    
                     <img src="Img/fotosistema.png" alt="Plataforma de Gestão e Agendamento para Barbearias" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+1';">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Plataforma de Gestão e Agendamento para Barbearias</h3>
                         <p class="text-slate-400 mb-4">Uma plataforma digital completa que moderniza a operação de barbearias. Oferece uma experiência de agendamento online e intuitiva para os clientes, enquanto centraliza toda a gestão do negócio em um painel administrativo robusto para os proprietários.</p>
-                        <!-- Tecnologias Usadas -->
+                        
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
                             <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
@@ -141,21 +139,21 @@
                         <div class="flex gap-4">
                             <a href="detalhes-barbearia.html" class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition-colors">Ver Projeto</a>
 
-                            <!-- Link para o repositório no GitHub -->
+                            
                             <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition-colors">Código Fonte</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- PROJETO 2: Website Dream On -->
+                
 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg">
-    <!-- Imagem do projeto -->
+   
     <img src="Img/imagemprojeto_salão.png" 
          alt="Website Dream On" 
          class="w-full h-48 object-cover" 
          onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+2';">
 
-    <!-- Conteúdo -->
+    
     <div class="p-6">
         <h3 class="text-xl font-bold text-white mb-2">Website Dream On</h3>
         <p class="text-slate-400 mb-4">
@@ -164,7 +162,7 @@
             Este projeto modernizou a presença online, conectando sonhos à realidade com praticidade.
         </p>
 
-        <!-- Tecnologias -->
+       
         <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
             <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
@@ -172,15 +170,13 @@
             <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
         </div>
 
-        <!-- Botões -->
         <div class="flex gap-4">
-            <!-- Botão Ver Projeto (leva à página detalhada) -->
+            
             <a href="projeto dream-on.html" 
                class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition-colors">
                Ver Projeto
             </a>
 
-            <!-- Link GitHub -->
             <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" 
                target="_blank" 
                class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition-colors">
@@ -191,14 +187,13 @@
 </div>
 
 
-               <!-- PROJETO 3: Em Breve -->
                 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg opacity-70">
                     <img src="https://placehold.co/600x400/1e293b/3b82f6?text=Em+Breve" alt="Projeto em Breve" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Projeto em Breve</h3>
                         <p class="text-slate-400 mb-4">Estou trabalhando em algo novo e empolgante. Volte em breve para ver as atualizações!</p>
                         <div class="flex gap-4">
-                            <!-- Botões desabilitados -->
+                            
                             <span class="text-sm bg-slate-700 text-slate-500 py-2 px-4 rounded-md font-semibold cursor-not-allowed">Ver Projeto</span>
                             <span class="text-sm bg-slate-700 text-slate-500 py-2 px-4 rounded-md font-semibold cursor-not-allowed">Código Fonte</span>
                         </div>
@@ -210,30 +205,28 @@
             </div>
         </section>
 
-         <!-- ===== SEÇÃO DE CONTATO ===== -->
         <section id="contato" class="py-20 md:py-32 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h2>
             <p class="text-slate-400 max-w-2xl mx-auto mb-8">
                 Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um oi, sinta-se à vontade para entrar em contato!
             </p>
-            <!-- EDITE COM SEU E-MAIL -->
+           
             <a href="mailto:nicolas-villela@hotmail.com" class="inline-block text-lg py-3 px-8 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors shadow-lg">
                 Mande um E-mail
             </a>
 
             <div class="mt-12 flex justify-center gap-6">
-               
-              <!-- EDITE o link 'href' com seu perfil do GitHub -->
+
                 <a href="https://github.com/nicolasanalyst" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     <span class="sr-only">GitHub</span>
                 </a>
-                 <!-- EDITE o link 'href' com seu perfil do LinkedIn -->
+             
                 <a href="https://www.linkedin.com/in/villela-nicolas" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span class="sr-only">LinkedIn</span>
                 </a>
-                <!-- EDITE o link 'href' com seu número do WhatsApp (ex: https://wa.me/5511999999999) -->
+               
                 <a href="https://wa.me/5519989132951" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 13.593 2.422 15.114 3.181 16.469L2 22L7.695 20.875C8.98 21.609 10.45 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM9.805 8.016C10.031 7.5 9.93 7.234 9.766 7.078C9.6 6.922 9.289 6.797 9.031 6.797C8.766 6.797 8.523 6.797 8.305 6.797C8.086 6.797 7.781 6.875 7.555 7.172C7.328 7.461 6.602 8.148 6.602 9.328C6.602 10.516 7.547 11.641 7.703 11.828C7.867 12.023 9.422 14.469 11.828 15.586C14.242 16.711 14.813 16.414 15.227 16.367C15.641 16.32 16.633 15.742 16.852 15.109C17.078 14.469 17.078 13.922 17.008 13.781C16.938 13.641 16.773 13.578 16.531 13.469C16.289 13.359 15.023 12.75 14.789 12.656C14.547 12.562 14.391 12.516 14.227 12.812C14.07 13.117 13.609 13.664 13.477 13.828C13.336 13.984 13.203 14.008 12.961 13.906C12.711 13.805 11.758 13.469 10.648 12.5C9.75 11.711 9.172 10.758 9.031 10.5C8.891 10.234 9.008 10.109 9.125 9.992C9.234 9.875 9.383 9.703 9.523 9.547C9.672 9.391 9.719 9.289 9.805 9.109C9.898 8.922 9.852 8.758 9.781 8.641C9.711 8.523 9.242 7.375 9.031 6.875L9.805 8.016Z" /></svg>
                     <span class="sr-only">WhatsApp</span>
@@ -242,14 +235,12 @@
         </section>
     </main>
 
-    <!-- ===== RODAPÉ ===== -->
     <footer class="bg-slate-800/50 border-t border-slate-700">
         <div class="container mx-auto px-6 py-6 text-center text-slate-400 text-sm">
             <p>&copy; 2025 <a href="#" class="font-semibold hover:text-blue-400">Nicolas Villela</a>. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Link para o seu arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
