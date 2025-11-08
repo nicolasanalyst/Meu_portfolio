@@ -6,7 +6,7 @@
   <title>Nicolas Villela | Portfólio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Favicon (Emoji) -->
+  
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
   <script>
     tailwind.config = {
@@ -20,23 +20,23 @@
     }
   </script>
   <style>
-    /* Estilo para garantir que as imagens do carrossel não sejam esticadas */
+    
     #carousel img {
-      object-fit: contain; /* Garante que a imagem mantenha a proporção */
-      max-height: 500px;  /* Limita a altura */
-      margin: 0 auto;      /* Centraliza a imagem se ela for menor que o container */
-      flex-shrink: 0;     /* Impede que a imagem encolha */
-      min-width: 100%;      /* Garante que ocupe 100% da largura do slide */
+      object-fit: contain; 
+      max-height: 500px;  
+      margin: 0 auto;      
+      flex-shrink: 0;     
+      min-width: 100%;      
       width: 100%;
     }
   </style>
 </head>
 
 <body class="bg-slate-900 text-slate-200 font-sans">
-  <!-- Cabeçalho -->
+ 
   <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-700">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Botão Voltar com ícone chevron -->
+     
       <a href="index.html" 
          class="flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-all duration-300 font-medium rounded-lg p-2 -ml-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
@@ -48,10 +48,10 @@
     </nav>
   </header>
 
-  <!-- Conteúdo principal -->
+ 
   <main class="container mx-auto px-6 py-12 md:py-20 space-y-16 md:space-y-24">
 
-    <!-- Introdução -->
+    
     <section>
       <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Website Dream On Salão de Festas</h1>
       <p class="text-lg text-slate-400 leading-relaxed max-w-3xl">
@@ -62,14 +62,14 @@
       </p>
     </section>
 
-    <!-- Mockups e Imagens -->
+    
     <section>
       <h2 class="text-3xl font-semibold text-white mb-6">Telas do Site Dream On</h2>
 
-      <!-- Carrossel de Imagens -->
+     
       <div class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-2xl bg-[rgb(15,23,42)] border border-[rgb(15,23,42)] flex items-center justify-center p-6">
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
-          <!-- Imagens -->
+          
           <img src="Img/tela_1_web-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
                alt="Tela 1 - Início"
                onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+1+Indisponível'; this.onerror=null;">
@@ -87,7 +87,7 @@
                onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+5+Indisponível'; this.onerror=null;">
         </div>
 
-        <!-- Setas de Navegação -->
+        
         <button id="prev" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Slide anterior">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -99,11 +99,11 @@
           </svg>
         </button>
         
-        <!-- Indicadores (bolinhas) -->
+        
         <div id="indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
       </div>
 
-      <!-- Script do Carrossel -->
+      
       <script>
         document.addEventListener('DOMContentLoaded', () => {
           const carousel = document.getElementById('carousel');
@@ -114,7 +114,7 @@
           let index = 0;
           let slideInterval;
 
-          // Criar bolinhas
+          
           for (let i = 0; i < totalSlides; i++) {
             const button = document.createElement('button');
             button.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
@@ -166,7 +166,6 @@
       </script>
     </section>
 
-    <!-- Estudo de Caso -->
     <section>
       <h2 class="text-3xl font-semibold text-white mb-6">Estudo de Caso</h2>
       <div class="space-y-6 text-slate-300 leading-relaxed max-w-4xl text-lg">
@@ -184,7 +183,6 @@
       </div>
     </section>
 
-    <!-- Ferramentas e Tecnologias -->
     <section>
       <h2 class="text-3xl font-semibold text-white mb-6">Ferramentas e Tecnologias Utilizadas</h2>
       <div class="flex flex-wrap gap-4">
@@ -195,11 +193,10 @@
       </div>
     </section>
 
-    <!-- Botões para Figma e GitHub -->
     <section class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
       <a href="https://www.figma.com/design/PTiFTX6wZVXFZd4OVbtjIC/Projeto-Dream-on?node-id=0-1&t=ykpUOjAa1cJVf6sD-1" target="_blank" rel="noopener noreferrer"
          class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-base">
-        <!-- Ícone do Figma -->
+        
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C12 10.3431 10.6569 9 9 9C7.34315 9 6 10.3431 6 12C6 13.6569 7.34315 15 9 15C10.6569 15 12 13.6569 12 12Z"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.34315 3 6 4.34315 6 6V12C6 10.3431 7.34315 9 9 9H15C13.3431 9 12 7.65685 12 6C12 4.34315 10.6569 3 9 3Z"/>
@@ -211,14 +208,14 @@
       </a>
       <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" target="_blank" rel="noopener noreferrer"
          class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-slate-500/30 text-base">
-        <!-- Ícone do GitHub -->
+       
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3-2.5 -6-3m12 5v-3.5c0-1 .1-1.4 -.5-2c2.8-.3 5.5-1.4 5.5-6c0-1.3-.5-2.4 -1.3-3.1c.1-.3.6-1.5 0-3.1c0 0-1.1-.4 -3.5 1.3c-1-.3 -2.1-.4 -3.2-.4c-1.1 0 -2.2.1 -3.2.4C6.1 2.8 5 3.2 5 3.2c-.6 1.6 -.1 2.8 0 3.1C4.2 7.1 3.7 8.1 3.7 9.4c0 4.6 2.7 5.7 5.5 6c-.6.5 -.9 1.2 -.9 2.2v3.5"/></svg>
         Ver no GitHub
       </a>
     </section>
   </main>
 
-  <!-- Rodapé -->
+  
   <footer class="bg-slate-900/50 border-t border-slate-700 mt-20 md:mt-32">
     <div class="container mx-auto px-6 py-8 text-center text-slate-400 text-sm">
       <p>&copy; 2025 <a href="index.html" class="font-semibold hover:text-blue-400 transition-colors">Nicolas Villela</a>. Todos os direitos reservados.</p>
@@ -226,4 +223,5 @@
   </footer>
 </body>
 </html>
+
 
