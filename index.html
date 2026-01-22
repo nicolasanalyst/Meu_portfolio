@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Villela | Portfolio</title>
+    <title>Nicolas Villela | Portfólio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon (Emoji) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
     
+    <!-- Link para o seu arquivo CSS -->
     <link rel="stylesheet" href="style.css">
 
     <script>
-        // Default dark theme configuration for Tailwind
+        // Configuração do tema escuro padrão para o Tailwind
         tailwind.config = {
-            darkMode: 'class', // Activates manual or class-based dark mode
+            darkMode: 'class', // Ativa o modo escuro manual ou baseado na classe
             theme: {
                 extend: {
                     fontFamily: {
@@ -29,21 +33,26 @@
 
 <body class="bg-slate-900 text-slate-200 font-sans antialiased">
 
+    <!-- ===== SEÇÃO DO CABEÇALHO / NAVEGAÇÃO ===== -->
     <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Seu nome ou logo -->
             <a href="#" class="flex items-baseline gap-2">
                 <span class="text-xl font-bold text-blue-400 hover:text-blue-500 transition-colors">Nicolas Villela</span>
                 <span class="text-base text-slate-300">Product Designer</span>
             </a>
 
+            <!-- Links de navegação para Desktop -->
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
-                <a href="#projetos" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#habilidades" class="hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#sobre" class="hover:text-blue-400 transition-colors">About Me</a>
-                <a href="#contato" class="hover:text-blue-400 transition-colors">Contact</a>
+                <a href="#home" class="hover:text-blue-400 transition-colors">Início</a>
+                <a href="#projetos" class="hover:text-blue-400 transition-colors">Projetos</a>
+                <!-- Link atualizado -->
+                <a href="#habilidades" class="hover:text-blue-400 transition-colors">Habilidades</a>
+                <a href="#sobre" class="hover:text-blue-400 transition-colors">Sobre Mim</a>
+                <a href="#contato" class="hover:text-blue-400 transition-colors">Contato</a>
             </div>
 
+            <!-- Botão do Menu Mobile -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -51,65 +60,81 @@
             </button>
         </nav>
         
+        <!-- Menu Mobile (oculto por padrão) -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="#home" class="block hover:text-blue-400 transition-colors">Home</a>
-            <a href="#projetos" class="block hover:text-blue-400 transition-colors">Projects</a>
-            <a href="#habilidades" class="block hover:text-blue-400 transition-colors">Skills</a>
-            <a href="#sobre" class="block hover:text-blue-400 transition-colors">About Me</a>
-            <a href="#contato" class="block hover:text-blue-400 transition-colors">Contact</a>
+            <a href="#home" class="block hover:text-blue-400 transition-colors">Início</a>
+            <a href="#projetos" class="block hover:text-blue-400 transition-colors">Projetos</a>
+            <a href="#habilidades" class="block hover:text-blue-400 transition-colors">Habilidades</a>
+            <a href="#sobre" class="block hover:text-blue-400 transition-colors">Sobre Mim</a>
+            <a href="#contato" class="block hover:text-blue-400 transition-colors">Contato</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12 md:py-20">
 
+        <!-- ===== SEÇÃO PRINCIPAL (HERO) ===== -->
         <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            <!-- Informações de texto -->
             <div class="md:w-1/2 text-center md:text-left">
-                <span class="text-blue-400 font-semibold">Hi, I am</span>
+                <span class="text-blue-400 font-semibold">Olá, eu sou</span>
+                <!-- EDITE SEU NOME AQUI -->
                 <h1 class="text-4xl md:text-6xl font-bold text-white mt-2 mb-4">Nicolas Villela</h1>
+                <!-- EDITE SUA PROFISSÃO AQUI -->
                 <h2 class="text-2xl text-slate-300">Product Designer | UI/UX</h2>
                 <p class="mt-4 text-slate-400 max-w-lg mx-auto md:mx-0">
-                    I transform ideas into digital reality with clean code and intuitive design. Passionate about technology and creating memorable experiences for users.
+                    <!-- EDITE SUA BIO CURTA AQUI -->
+                    Transformo ideias em realidade digital com código limpo e design intuitivo. Apaixonado por tecnologia e por criar experiências memoráveis para os usuários.
                 </p>
                 <div class="mt-8 flex justify-center md:justify-start gap-4">
-                    <a href="#contato" class="py-3 px-6 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors shadow-lg">Get in Touch</a>
-                    <a href="Img/CV Nicolas Silva inglês (1).pdf" target="_blank" class="py-3 px-6 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-semibold transition-colors shadow-lg">Resume</a>
+                    <a href="#contato" class="py-3 px-6 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors shadow-lg">Entre em Contato</a>
+                    <!-- EDITE O 'href' ABAIXO COM O LINK PARA O SEU CURRÍCULO (ex: ./curriculo.pdf) -->
+                    <a href="Img/Curriculo Nicolas Silva.pdf" target="_blank" class="py-3 px-6 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-semibold transition-colors shadow-lg">Currículo</a>
                 </div>
             </div>
 
+            <!-- Sua Foto -->
             <div class="md:w-1/3 w-2/3">
-                <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Nicolas Villela Photo" class="aspect-square rounded-full shadow-2xl shadow-blue-500/20 w-full object-cover">
+                <!-- COLOQUE O LINK DA SUA FOTO AQUI no 'src' -->
+                <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="aspect-square rounded-full shadow-2xl shadow-blue-500/20 w-full object-cover">
             </div>
         </section>
 
+        <!-- ===== SEÇÃO SOBRE MIM ===== -->
         <section id="sobre" class="py-20 md:py-32">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-                About Me
+                Sobre Mim
             </h2>
             <div class="flex flex-col items-center justify-center">
                 <div class="max-w-3xl text-slate-300 space-y-4 text-center">
+                     <!-- EDITE O TEXTO SOBRE VOCÊ AQUI -->
                     <p>
-                        I am a Product Designer with a clear mission: to create digital products that not only meet business needs but also provide meaningful and intuitive experiences for people. I believe technology should be a bridge to facilitate daily life, and my job is to build those bridges with empathy and strategy.
+                        Sou Product Designer com uma missão clara: criar produtos digitais que não apenas atendam às necessidades do negócio, mas que também ofereçam experiências significativas e intuitivas para as pessoas. Acredito que a tecnologia deve ser uma ponte para facilitar o dia a dia, e meu trabalho é construir essas pontes com empatia e estratégia.
                     </p>
                     <p>
-                        My design process is collaborative and user-centered, involving research, ideation, prototyping, and continuous testing. I have experience transforming complex challenges into simple and elegant solutions, always focusing on usability, accessibility, and innovation. I constantly seek to learn and apply new methodologies to deliver products that generate real impact.
+                        Meu processo de design é colaborativo e centrado no usuário, envolvendo pesquisa, ideação, prototipagem e testes contínuos. Tenho experiência em transformar desafios complexos em soluções simples e elegantes, sempre com foco em usabilidade, acessibilidade e inovação. Busco constantemente aprender e aplicar novas metodologias para entregar produtos que gerem impacto real.
                     </p>
                 </div>
             </div>
         </section>
 
-          <section id="projetos" class="py-20">
+          <!-- ===== SEÇÃO DE PROJETOS ===== -->
+        <section id="projetos" class="py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-                My Projects
+                Meus Projetos
             </h2>
             
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Grid de projetos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
+                <!-- PROJETO 1: Barbearia -->
                 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg flex flex-col h-full">
-                    <img src="Img/fotosistema.png" alt="Management and Scheduling Platform for Barbershops" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Project+1';">
+                    <!-- Imagem do Projeto -->
+                    <img src="Img/fotosistema.png" alt="Plataforma de Gestão e Agendamento para Barbearias" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+1';">
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2">Barbershop Management & Scheduling Platform</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">A complete digital platform that modernizes barbershop operations. It offers an intuitive online scheduling experience for clients while centralizing all business management in a robust administrative panel for owners.</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Plataforma de Gestão e Agendamento para Barbearias</h3>
+                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">Uma plataforma digital completa que moderniza a operação de barbearias. Oferece uma experiência de agendamento online e intuitiva para os clientes, enquanto centraliza toda a gestão do negócio em um painel administrativo robusto para os proprietários.</p>
+                            <!-- Tecnologias Usadas -->
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
                                 <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
@@ -119,27 +144,33 @@
                             </div>
                         </div>
                         <div class="flex gap-4 mt-auto pt-4">
-                            <a href="detalhes-barbearia.html" class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition-colors">View Project</a>
-                            <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition-colors">Source Code</a>
+                            <a href="detalhes-barbearia.html" class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition-colors">Ver Projeto</a>
+
+                            <!-- Link para o repositório no GitHub -->
+                            <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition-colors">Código Fonte</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- PROJETO 2: Website Dream On -->
                 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg flex flex-col h-full">
+                    <!-- Imagem do projeto -->
                     <img src="Img/imagemprojeto_salão.png" 
-                         alt="Dream On Website" 
+                         alt="Website Dream On" 
                          class="w-full h-48 object-cover" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Project+2';">
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+2';">
 
+                    <!-- Conteúdo -->
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2">Dream On Website</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Website Dream On</h3>
                             <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                Developed a responsive website for <strong>Dream On Event Hall</strong>, 
-                                an elegant portal that allows easy scheduling and gallery exploration. 
-                                This project modernized their online presence, connecting dreams to reality with practicality.
+                                Desenvolvi o site responsivo do <strong>Dream On Salão de Festas</strong>, 
+                                um portal elegante que permite agendamento fácil e exploração de galerias. 
+                                Este projeto modernizou a presença online, conectando sonhos à realidade com praticidade.
                             </p>
 
+                            <!-- Tecnologias -->
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
                                 <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
@@ -148,88 +179,116 @@
                             </div>
                         </div>
 
+                        <!-- Botões -->
                         <div class="flex gap-4 mt-auto pt-4">
+                            <!-- Botão Ver Projeto (leva à página detalhada) -->
                             <a href="projeto dream-on.html" 
                                class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition-colors">
-                               View Project
+                               Ver Projeto
                             </a>
+
+                            <!-- Link GitHub -->
                             <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" 
                                target="_blank" 
                                class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition-colors">
-                               Source Code
+                               Código Fonte
                             </a>
                         </div>
                     </div>
                 </div>
 
+                <!-- PROJETO 3: Pastelaria Gourmet -->
                 <div class="bg-slate-800 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 shadow-lg flex flex-col h-full">
+
+                    <!-- Imagem -->
                     <img 
                         src="Img/pastelaria.png" 
-                        alt="Gourmet Pastry Shop - Ordering System" 
+                        alt="Pastelaria Gourmet - Sistema de Pedidos" 
                         class="w-full h-48 object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Project+3';">
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+3';">
 
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex-grow">
+                            <!-- Título -->
                             <h3 class="text-xl font-bold text-white mb-3">
-                                Gourmet Pastry Ordering System
+                                Pastelaria Gourmet Sistema de Pedidos
                             </h3>
+
+                            <!-- Descrição -->
                             <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                System developed in <strong>Python</strong> with <strong>SQLite</strong> for managing orders in a pastry shop. 
-                                It allows table and menu registration, order tracking, automatic total calculation, and bill closing.
+                                Sistema desenvolvido em <strong>Python</strong> com <strong>SQLite</strong> para o gerenciamento de pedidos em uma pastelaria.
+                                Permite cadastro de mesas e itens do cardápio, controle de pedidos,
+                                cálculo automático do valor total e fechamento de contas.
                             </p>
 
+                            <!-- Tecnologias -->
                             <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">Python</span>
-                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">SQLite</span>
-                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
+                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">
+                                    Python
+                                </span>
+                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">
+                                    SQLite
+                                </span>
+                                <span class="text-xs font-semibold bg-slate-700 text-blue-300 py-1 px-3 rounded-full">
+                                    Figma
+                                </span>
                             </div>
                         </div>
 
+                        <!-- Botões -->
                         <div class="flex gap-4 mt-auto pt-4">
                             <button
                                 onclick="document.getElementById('modal-breve').classList.remove('hidden')"
                                 class="text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition">
-                                View Project
+                                Ver Projeto
                             </button>
+
                             <a 
                                 href="https://github.com/nicolasanalyst/Sistema_pastelaria_python.git"
                                 target="_blank"
                                 class="text-sm bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-md font-semibold transition">
-                                Source Code
+                                Código Fonte
                             </a>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </section>
 
 
+        <!-- ===== SEÇÃO: MINHAS HABILIDADES (Ícones Grandes e Centralizados) ===== -->
         <section id="habilidades" class="py-20 bg-slate-900">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
-                        My Skills
+                        Minhas Habilidades
                     </h2>
                     <p class="text-xl text-blue-400 font-medium">
-                        How I make things happen
+                        Como eu faço acontecer
                     </p>
                 </div>
                 
+                <!-- Grid de Habilidades -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                     
+                    <!-- Card 1: UX Design -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
+                        <!-- Container Ícone Grande -->
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
+                            <!-- Ícone SVG Maior -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">UX Design</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Transforming needs into clear and functional experiences.
+                            Transformo necessidades em experiências claras e funcionais
                         </p>
                     </div>
 
+                    <!-- Card 2: UI Design -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -238,10 +297,11 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">UI Design</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Designing beautiful, clear, and easy-to-use interfaces.
+                            Desenho interfaces bonitas, claras e fáceis de usar 
                         </p>
                     </div>
 
+                    <!-- Card 3: UX Research -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -250,34 +310,37 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">UX Research</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Investigating real needs through interviews and analysis.
+                            Investigo necessidades reais por meio de entrevistas e análises 
                         </p>
                     </div>
 
+                    <!-- Card 4: Prototipação -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Prototyping</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">Prototipação</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Creating quick prototypes to validate ideas in practice.
+                             Crio protótipos rápidos para validar ideias na prática 
                         </p>
                     </div>
 
+                    <!-- Card 5: Testes de Usabilidade -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Usability Testing</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">Testes de Usabilidade</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Testing solutions with users to discover what to improve.
+                            Testo soluções com usuários para descobrir o que melhorar 
                         </p>
                     </div>
 
+                    <!-- Card 6: Design System -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -286,44 +349,50 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">Design System</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Organizing visual standards to maintain consistency.
+                            Organizo padrões visuais para manter tudo consistente
                         </p>
                     </div>
 
+                    <!-- Card 7: Desenvolvimento Web -->
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group md:col-span-2 lg:col-span-2">
                         <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Responsive Web Development</h3>
+                        <h3 class="text-xl font-bold text-white mb-3">Desenvolvimento Web Responsivo</h3>
                         <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                            Implementing responsive and functional websites.
-                        </p>
+                            Implemento sites responsivos e funcionais
                     </div>
 
                 </div>
             </div>
         </section>
 
-          <section id="contato" class="py-20 md:py-32 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's Talk?</h2>
+         <!-- ===== SEÇÃO DE CONTATO ===== -->
+        <section id="contato" class="py-20 md:py-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h2>
             <p class="text-slate-400 max-w-2xl mx-auto mb-8">
-                I'm always open to new opportunities and collaborations. If you have a project in mind, a question, or just want to say hi, feel free to reach out!
+                Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um oi, sinta-se à vontade para entrar em contato!
             </p>
+            <!-- EDITE COM SEU E-MAIL -->
             <a href="mailto:nicolas-villela@hotmail.com" class="inline-block text-lg py-3 px-8 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors shadow-lg">
-                Send an Email
+                Mande um E-mail
             </a>
 
             <div class="mt-12 flex justify-center gap-6">
+               
+              <!-- EDITE o link 'href' com seu perfil do GitHub -->
                 <a href="https://github.com/nicolasanalyst" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     <span class="sr-only">GitHub</span>
                 </a>
+                 <!-- EDITE o link 'href' com seu perfil do LinkedIn -->
                 <a href="https://www.linkedin.com/in/villela-nicolas" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span class="sr-only">LinkedIn</span>
                 </a>
+                <!-- EDITE o link 'href' com seu número do WhatsApp (ex: https://wa.me/5519989132951) -->
                 <a href="https://wa.me/5519989132951" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 13.593 2.422 15.114 3.181 16.469L2 22L7.695 20.875C8.98 21.609 10.45 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM9.805 8.016C10.031 7.5 9.93 7.234 9.766 7.078C9.6 6.922 9.289 6.797 9.031 6.797C8.766 6.797 8.523 6.797 8.305 6.797C8.086 6.797 7.781 6.875 7.555 7.172C7.328 7.461 6.602 8.148 6.602 9.328C6.602 10.516 7.547 11.641 7.703 11.828C7.867 12.023 9.422 14.469 11.828 15.586C14.242 16.711 14.813 16.414 15.227 16.367C15.641 16.32 16.633 15.742 16.852 15.109C17.078 14.469 17.078 13.922 17.008 13.781C16.938 13.641 16.773 13.578 16.531 13.469C16.289 13.359 15.023 12.75 14.789 12.656C14.547 12.562 14.391 12.516 14.227 12.812C14.07 13.117 13.609 13.664 13.477 13.828C13.336 13.984 13.203 14.008 12.961 13.906C12.711 13.805 11.758 13.469 10.648 12.5C9.75 11.711 9.172 10.758 9.031 10.5C8.891 10.234 9.008 10.109 9.125 9.992C9.234 9.875 9.383 9.703 9.523 9.547C9.672 9.391 9.719 9.289 9.805 9.109C9.898 8.922 9.852 8.758 9.781 8.641C9.711 8.523 9.242 7.375 9.031 6.875L9.805 8.016Z" /></svg>
                     <span class="sr-only">WhatsApp</span>
@@ -332,27 +401,30 @@
         </section>
     </main>
 
+    <!-- ===== RODAPÉ ===== -->
     <footer class="bg-slate-800/50 border-t border-slate-700">
         <div class="container mx-auto px-6 py-6 text-center text-slate-400 text-sm">
-            <p>&copy; 2026 <a href="#" class="font-semibold hover:text-blue-400">Nicolas Villela</a>. All rights reserved.</p>
+            <p>&copy; 2026 <a href="#" class="font-semibold hover:text-blue-400">Nicolas Villela</a>. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <!-- MODAL: Em Breve -->
     <div id="modal-breve" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
         <div class="bg-slate-800 rounded-lg p-6 max-w-sm w-full mx-4 text-center shadow-xl">
-            <h4 class="text-lg font-bold text-white mb-2">Project Coming Soon</h4>
+            <h4 class="text-lg font-bold text-white mb-2">Projeto em breve</h4>
             <p class="text-slate-400 mb-4 text-sm">
-                This project is still under development.
-                Soon you will be able to view the full demonstration.
+                Este projeto ainda está em desenvolvimento.
+                Em breve você poderá visualizar a demonstração completa.
             </p>
             <button
                 onclick="document.getElementById('modal-breve').classList.add('hidden')"
                 class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-semibold transition">
-                Close
+                Fechar
             </button>
         </div>
     </div>
 
+    <!-- Link para o seu arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
