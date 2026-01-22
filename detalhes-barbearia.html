@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicolas Villela | Portfolio</title>
+  <title>Nicolas Villela | Portfólio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
+   <!-- Favicon (Emoji) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
   <script>
     tailwind.config = {
       theme: {
@@ -19,78 +20,88 @@
     }
   </script>
   <style>
-    /* Style to ensure carousel images are not stretched */
+    /* Estilo para garantir que as imagens do carrossel não sejam esticadas */
     #carousel img {
-      object-fit: contain; /* Ensures the image maintains aspect ratio */
-      max-height: 500px;  /* Limits the height */
-      margin: 0 auto;      /* Centers the image if it's smaller than the container */
-      flex-shrink: 0;     /* Prevents image from shrinking */
-      min-width: 100%;      /* Ensures it occupies 100% of slide width */
+      object-fit: contain; /* Garante que a imagem mantenha a proporção */
+      max-height: 500px;  /* Limita a altura */
+      margin: 0 auto;      /* Centraliza a imagem se ela for menor que o container */
+      flex-shrink: 0;     /* Impede que a imagem encolha */
+      min-width: 100%;      /* Garante que ocupe 100% da largura do slide */
       width: 100%;
     }
   </style>
 </head>
 
 <body class="bg-slate-900 text-slate-200 font-sans">
+  <!-- Cabeçalho -->
   <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-700">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" 
+      <!-- Botão Voltar com ícone chevron -->
+    <a href="index.html" 
        class="flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-all duration-300 font-medium rounded-lg p-2 -ml-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
       </svg>
-      Back
+      Voltar
     </a>
       <span class="text-slate-300 text-sm md:text-base text-right">Nicolas Villela | Product Designer</span>
     </nav>
   </header>
 
+  <!-- Conteúdo principal -->
   <main class="container mx-auto px-6 py-12 md:py-20 space-y-16 md:space-y-24">
     
+    <!-- Introdução -->
     <section>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Barbershop Management and Scheduling Platform</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Plataforma de Gestão e Agendamento para Barbearias</h1>
       <p class="text-lg text-slate-400 leading-relaxed max-w-3xl">
-        A complete digital platform that modernizes barbershop operations. It offers an intuitive online scheduling experience for clients, 
-        while centralizing business management in a robust administrative panel for owners.
+        Uma plataforma digital completa que moderniza a operação de barbearias. Oferece uma experiência de agendamento online e intuitiva para os clientes, 
+        enquanto centraliza toda a gestão do negócio em um painel administrativo robusto para os proprietários.
       </p>
     </section>
 
-    <section>
-  <h2 class="text-3xl font-semibold text-white mb-6">System Screens: Service Management</h2>
+    <!-- Mockups e Imagens -->
+<section>
+  <h2 class="text-3xl font-semibold text-white mb-6">Telas do Sistema: Gestão de Serviços</h2>
 
+  <!-- Carrossel de Imagens -->
   <div class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-2xl bg-[rgb(15,23,42)] border border-[rgb(15,23,42)] flex items-center justify-center p-6">
     <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+      <!-- Imagens -->
       <img src="Img/tela_1_png_-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Screen 1 - Welcome"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Image+1+Unavailable'; this.onerror=null;">
+           alt="Tela 1 - Bem-vindo"
+           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+1+Indisponível'; this.onerror=null;">
       <img src="Img/tela_2_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Screen 2 - Home"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Image+2+Unavailable'; this.onerror=null;">
+           alt="Tela 2 - Início"
+           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+2+Indisponível'; this.onerror=null;">
       <img src="Img/tela_3_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Screen 3 - Schedule"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Image+3+Unavailable'; this.onerror=null;">
+           alt="Tela 3 - Agenda"
+           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+3+Indisponível'; this.onerror=null;">
       <img src="Img/tela_4_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Screen 4 - Clients"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Image+4+Unavailable'; this.onerror=null;">
+           alt="Tela 4 - Clientes"
+           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+4+Indisponível'; this.onerror=null;">
       <img src="Img/tela_5_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Screen 5 - Reports"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Image+5+Unavailable'; this.onerror=null;">
+           alt="Tela 5 - Relatórios"
+           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+5+Indisponível'; this.onerror=null;">
     </div>
 
-    <button id="prev" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Previous slide">
+    <!-- Setas de Navegação -->
+    <button id="prev" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Slide anterior">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
       </svg>
     </button>
-    <button id="next" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Next slide">
+    <button id="next" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Próximo slide">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
       </svg>
     </button>
     
+    <!-- Indicadores (bolinhas) -->
     <div id="indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
   </div>
 
+  <!-- Script do Carrossel -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const carousel = document.getElementById('carousel');
@@ -101,12 +112,12 @@
       let index = 0;
       let slideInterval;
 
-      // Create dots
+      // Criar bolinhas
       for (let i = 0; i < totalSlides; i++) {
         const button = document.createElement('button');
         button.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
         button.classList.add(i === 0 ? 'bg-white' : 'bg-slate-500/50', 'hover:bg-slate-300');
-        button.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
         button.addEventListener('click', () => {
           showSlide(i);
           resetInterval();
@@ -153,48 +164,55 @@
   </script>
 </section>
 
-    <section>
-  <h2 class="text-3xl font-semibold text-white mb-6">Scheduling Screen (Chat)</h2>
+    <!-- Nova Seção: Tela de Agendamento (Chat) -->
+<section>
+  <h2 class="text-3xl font-semibold text-white mb-6">Tela de Agendamento (Chat)</h2>
   <div class="flex flex-col md:flex-row gap-8 items-center">
+    <!-- Descrição -->
     <div class="w-full md:w-1/2 space-y-4 text-slate-300 leading-relaxed text-lg">
       <p>
-        To modernize the booking experience, the design proposes a conversational interface (chat).
+        Para modernizar a experiência de agendamento, o design propõe uma interface conversacional (chat).
       </p>
       <p>
-        Clients can interact with a virtual assistant to choose services and see available times intuitively, as if they were exchanging messages.
+        O cliente pode interagir com um assistente virtual para escolher serviços e ver os horários disponíveis de forma intuitiva, como se estivesse trocando mensagens.
       </p>
       <p>
-        This approach aims to reduce friction and make the reservation process faster and more personal.
+        Essa abordagem visa reduzir o atrito e tornar o processo de reserva mais rápido e pessoal.
       </p>
     </div>
 
+    <!-- Carrossel Mockup do Chat -->
     <div class="w-full md:w-1/2 relative overflow-hidden rounded-3xl shadow-2xl bg-[rgb(15,23,42)] border border-[rgb(15,23,42)] flex items-center justify-center p-6">
       <div id="carousel-chat" class="flex transition-transform duration-700 ease-in-out">
+        <!-- Imagens -->
         <img src="Img/Captura_de_tela_2025-11-02_205922-removebg-preview.png"
              class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-             alt="Chat Screen 1"
-             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Image+Unavailable'; this.onerror=null;">
+             alt="Tela 1 do Chat"
+             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Imagem+Indisponível'; this.onerror=null;">
         <img src="Img/Captura_de_tela_2025-11-02_205950-removebg-preview.png"
              class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-             alt="Chat Screen 2"
-             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Image+Unavailable'; this.onerror=null;">
+             alt="Tela 2 do Chat"
+             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Imagem+Indisponível'; this.onerror=null;">
       </div>
 
-      <button id="prev-chat" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Previous slide">
+      <!-- Setas -->
+      <button id="prev-chat" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Slide anterior">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
       </button>
-      <button id="next-chat" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Next slide">
+      <button id="next-chat" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Próximo slide">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
           <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
       </button>
 
+      <!-- Indicadores -->
       <div id="indicators-chat" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
     </div>
   </div>
 
+  <!-- Script do Carrossel -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const carouselChat = document.getElementById('carousel-chat');
@@ -205,13 +223,13 @@
       let indexChat = 0;
       let slideIntervalChat;
 
-      // Create dots
+      // Criar bolinhas
       if (indicatorsContainerChat) {
         for (let i = 0; i < totalSlidesChat; i++) {
           const button = document.createElement('button');
           button.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
           button.classList.add(i === 0 ? 'bg-white' : 'bg-slate-500/50', 'hover:bg-slate-300');
-          button.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
           button.addEventListener('click', () => {
             showSlideChat(i);
             resetIntervalChat();
@@ -260,29 +278,31 @@
 </section>
 
 
+    <!-- Estudo de Caso -->
     <section>
-      <h2 class="text-3xl font-semibold text-white mb-6">Case Study</h2>
+      <h2 class="text-3xl font-semibold text-white mb-6">Estudo de Caso</h2>
       <div class="space-y-6 text-slate-300 leading-relaxed max-w-4xl text-lg">
         <p>
-          This project was created with the goal of digitizing and optimizing the routine of barbershops, 
-          allowing clients to book services quickly and practically through the platform, 
-          while owners manage schedules, clients, and services efficiently.
+          O projeto foi criado com o objetivo de digitalizar e otimizar a rotina de barbearias, 
+          permitindo que os clientes agendem serviços de forma rápida e prática através da plataforma, 
+          enquanto os donos gerenciam horários, clientes e serviços de maneira eficiente.
         </p>
         <p>
-          Through user-centered design and an organized architecture, 
-          the system made the booking process more accessible and visually pleasing, 
-          reducing service time and increasing client satisfaction.
+          Através de um design centrado no usuário e de uma arquitetura organizada, 
+          o sistema tornou o processo de agendamento mais acessível e visualmente agradável, 
+          reduzindo o tempo de atendimento e aumentando a satisfação dos clientes.
         </p>
         <p>
-          The platform also enables the administrator to control bookings,
-          manage prices, and track performance metrics. The result is a functional, modern system 
-          with responsive design.
+          A plataforma também possibilita ao administrador controlar agendamentos,
+          gerenciar preços e acompanhar métricas de desempenho. O resultado é um sistema funcional, moderno 
+          e com design responsivo.
         </p>
       </div>
     </section>
 
+    <!-- Ferramentas e Tecnologias -->
     <section>
-      <h2 class="text-3xl font-semibold text-white mb-6">Tools and Technologies Used</h2>
+      <h2 class="text-3xl font-semibold text-white mb-6">Ferramentas e Tecnologias Utilizadas</h2>
       <div class="flex flex-wrap gap-4">
         <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">HTML</span>
         <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">CSS</span>
@@ -292,9 +312,11 @@
       </div>
     </section>
 
+    <!-- Botões para Figma e GitHub -->
     <section class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
       <a href="https://www.figma.com/design/EnMkWmpDkllYTlLBUGLgEE/Painel-de-Gest%C3%A3o-De-Servi%C3%A7os?node-id=0-1&t=jXu3ZO3uCq28SXcp-1" target="_blank" rel="noopener noreferrer"
          class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-base">
+        <!-- Ícone do Figma atualizado -->
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C12 10.3431 10.6569 9 9 9C7.34315 9 6 10.3431 6 12C6 13.6569 7.34315 15 9 15C10.6569 15 12 13.6569 12 12Z"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.34315 3 6 4.34315 6 6V12C6 10.3431 7.34315 9 9 9H15C13.3431 9 12 7.65685 12 6C12 4.34315 10.6569 3 9 3Z"/>
@@ -302,19 +324,20 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M15 9H18C19.6569 9 21 10.3431 21 12C21 13.6569 19.6569 15 18 15C16.3431 15 15 13.6569 15 12V9Z"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C12 7.65685 13.3431 9 15 9H12V6Z"/>
         </svg>
-        View on Figma
+        Ver no Figma
       </a>
       <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" rel="noopener noreferrer"
          class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-slate-500/30 text-base">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3-2.5 -6-3m12 5v-3.5c0-1 .1-1.4 -.5-2c2.8-.3 5.5-1.4 5.5-6c0-1.3-.5-2.4 -1.3-3.1c.1-.3.6-1.5 0-3.1c0 0-1.1-.4 -3.5 1.3c-1-.3 -2.1-.4 -3.2-.4c-1.1 0 -2.2.1 -3.2.4C6.1 2.8 5 3.2 5 3.2c-.6 1.6 -.1 2.8 0 3.1C4.2 7.1 3.7 8.1 3.T7 9.4c0 4.6 2.7 5.7 5.5 6c-.6.5 -.9 1.2 -.9 2.2v3.5"/></svg>
-        View on GitHub
+        Ver no GitHub
       </a>
     </section>
   </main>
 
+  <!-- Rodapé -->
   <footer class="bg-slate-900/50 border-t border-slate-700 mt-20 md:mt-32">
     <div class="container mx-auto px-6 py-8 text-center text-slate-400 text-sm">
-      <p>&copy; 2025 <a href="index.html" class="font-semibold hover:text-blue-400 transition-colors">Nicolas Villela</a>. All rights reserved.</p>
+      <p>&copy; 2025 <a href="index.html" class="font-semibold hover:text-blue-400 transition-colors">Nicolas Villela</a>. Todos os direitos reservados.</p>
     </div>
   </footer>
 </body>
