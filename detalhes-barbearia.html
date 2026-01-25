@@ -3,343 +3,735 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicolas Villela | Portfólio</title>
+  <title>Case: Agendamento Barbearia | Nicolas Villela</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-   <!-- Favicon (Emoji) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
+  
+  <!-- Configurações Tailwind -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              dark: '#0F172A',
+              primary: '#3B82F6',
+              accent: '#F59E0B'
+            }
           }
         }
       }
     }
   </script>
+  
   <style>
-    /* Estilo para garantir que as imagens do carrossel não sejam esticadas */
-    #carousel img {
-      object-fit: contain; /* Garante que a imagem mantenha a proporção */
-      max-height: 500px;  /* Limita a altura */
-      margin: 0 auto;      /* Centraliza a imagem se ela for menor que o container */
-      flex-shrink: 0;     /* Impede que a imagem encolha */
-      min-width: 100%;      /* Garante que ocupe 100% da largura do slide */
+    /* Estilos para o Carrossel */
+    #carousel img, #carousel-chat img {
+      object-fit: contain;
+      max-height: 500px;  
+      margin: 0 auto;       
+      flex-shrink: 0;     
+      min-width: 100%;      
       width: 100%;
+    }
+    
+    /* Padrão para áreas de placeholder (Wireframes) */
+    .pattern-grid {
+      background-image: radial-gradient(#334155 1px, transparent 1px);
+      background-size: 20px 20px;
     }
   </style>
 </head>
 
-<body class="bg-slate-900 text-slate-200 font-sans">
-  <!-- Cabeçalho -->
-  <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-700">
+<body class="bg-slate-900 text-slate-200 font-sans selection:bg-blue-500/30">
+  
+  <!-- Header de Navegação -->
+  <header class="bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Botão Voltar com ícone chevron -->
-    <a href="index.html" 
-       class="flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-all duration-300 font-medium rounded-lg p-2 -ml-2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-      Voltar
-    </a>
-      <span class="text-slate-300 text-sm md:text-base text-right">Nicolas Villela | Product Designer</span>
+      <a href="index.html" class="group flex items-center gap-2 text-slate-400 hover:text-white transition-all duration-300 font-medium text-sm">
+        <div class="bg-slate-800 p-1.5 rounded-md group-hover:bg-blue-600 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-white">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </div>
+        <span>Voltar ao Portfólio</span>
+      </a>
+      <div class="text-right hidden md:block">
+          <p class="text-white font-semibold text-sm">Nicolas Villela</p>
+          <p class="text-xs text-slate-500">Product Designer</p>
+      </div>
     </nav>
   </header>
 
-  <!-- Conteúdo principal -->
-  <main class="container mx-auto px-6 py-12 md:py-20 space-y-16 md:space-y-24">
+  <main class="container mx-auto px-6 py-12 md:py-20 space-y-24">
     
-    <!-- Introdução -->
-    <section>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Plataforma de Gestão e Agendamento para Barbearias</h1>
-      <p class="text-lg text-slate-400 leading-relaxed max-w-3xl">
-        Uma plataforma digital completa que moderniza a operação de barbearias. Oferece uma experiência de agendamento online e intuitiva para os clientes, 
-        enquanto centraliza toda a gestão do negócio em um painel administrativo robusto para os proprietários.
-      </p>
-    </section>
-
-    <!-- Mockups e Imagens -->
-<section>
-  <h2 class="text-3xl font-semibold text-white mb-6">Telas do Sistema: Gestão de Serviços</h2>
-
-  <!-- Carrossel de Imagens -->
-  <div class="relative w-full max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-2xl bg-[rgb(15,23,42)] border border-[rgb(15,23,42)] flex items-center justify-center p-6">
-    <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
-      <!-- Imagens -->
-      <img src="Img/tela_1_png_-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Tela 1 - Bem-vindo"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+1+Indisponível'; this.onerror=null;">
-      <img src="Img/tela_2_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Tela 2 - Início"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+2+Indisponível'; this.onerror=null;">
-      <img src="Img/tela_3_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Tela 3 - Agenda"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+3+Indisponível'; this.onerror=null;">
-      <img src="Img/tela_4_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Tela 4 - Clientes"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+4+Indisponível'; this.onerror=null;">
-      <img src="Img/tela_5_png-removebg-preview.png" class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-           alt="Tela 5 - Relatórios"
-           onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Imagem+5+Indisponível'; this.onerror=null;">
-    </div>
-
-    <!-- Setas de Navegação -->
-    <button id="prev" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Slide anterior">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-    </button>
-    <button id="next" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Próximo slide">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
-    </button>
-    
-    <!-- Indicadores (bolinhas) -->
-    <div id="indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
-  </div>
-
-  <!-- Script do Carrossel -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('carousel');
-      if (!carousel) return;
-
-      const totalSlides = carousel.children.length;
-      const indicatorsContainer = document.getElementById('indicators');
-      let index = 0;
-      let slideInterval;
-
-      // Criar bolinhas
-      for (let i = 0; i < totalSlides; i++) {
-        const button = document.createElement('button');
-        button.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
-        button.classList.add(i === 0 ? 'bg-white' : 'bg-slate-500/50', 'hover:bg-slate-300');
-        button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
-        button.addEventListener('click', () => {
-          showSlide(i);
-          resetInterval();
-        });
-        indicatorsContainer.appendChild(button);
-      }
-
-      const indicators = indicatorsContainer.children;
-
-      function updateIndicators(currentIndex) {
-        for (let i = 0; i < indicators.length; i++) {
-          indicators[i].classList.toggle('bg-white', i === currentIndex);
-          indicators[i].classList.toggle('bg-slate-500/50', i !== currentIndex);
-        }
-      }
-
-      function showSlide(i) {
-        index = (i + totalSlides) % totalSlides;
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-        updateIndicators(index);
-      }
-
-      function nextSlide() {
-        showSlide(index + 1);
-      }
-
-      function resetInterval() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 3500);
-      }
-
-      document.getElementById('next').addEventListener('click', () => {
-        nextSlide();
-        resetInterval();
-      });
+    <!-- 1. HERO: Título e Contexto -->
+    <section class="max-w-4xl mx-auto text-center space-y-6">
+      <div class="inline-flex gap-2 flex-wrap justify-center">
+        <span class="px-3 py-1 text-xs font-semibold tracking-wide text-blue-300 bg-blue-500/10 rounded-full border border-blue-500/20">UX Research</span>
+        <span class="px-3 py-1 text-xs font-semibold tracking-wide text-purple-300 bg-purple-500/10 rounded-full border border-purple-500/20">UI Design</span>
+        <span class="px-3 py-1 text-xs font-semibold tracking-wide text-emerald-300 bg-emerald-500/10 rounded-full border border-emerald-500/20">Front-end</span>
+      </div>
       
-      document.getElementById('prev').addEventListener('click', () => {
-        showSlide(index - 1);
-        resetInterval();
-      });
-
-      slideInterval = setInterval(nextSlide, 3500);
-    });
-  </script>
-</section>
-
-    <!-- Nova Seção: Tela de Agendamento (Chat) -->
-<section>
-  <h2 class="text-3xl font-semibold text-white mb-6">Tela de Agendamento (Chat)</h2>
-  <div class="flex flex-col md:flex-row gap-8 items-center">
-    <!-- Descrição -->
-    <div class="w-full md:w-1/2 space-y-4 text-slate-300 leading-relaxed text-lg">
-      <p>
-        Para modernizar a experiência de agendamento, o design propõe uma interface conversacional (chat).
+      <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
+        Otimizando o agendamento de barbearias via <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Interface Conversacional</span>
+      </h1>
+      
+      <p class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+        Como transformei um processo manual e demorado no WhatsApp em uma experiência autônoma de 45 segundos.
       </p>
-      <p>
-        O cliente pode interagir com um assistente virtual para escolher serviços e ver os horários disponíveis de forma intuitiva, como se estivesse trocando mensagens.
-      </p>
-      <p>
-        Essa abordagem visa reduzir o atrito e tornar o processo de reserva mais rápido e pessoal.
-      </p>
-    </div>
+    </section>
 
-    <!-- Carrossel Mockup do Chat -->
-    <div class="w-full md:w-1/2 relative overflow-hidden rounded-3xl shadow-2xl bg-[rgb(15,23,42)] border border-[rgb(15,23,42)] flex items-center justify-center p-6">
-      <div id="carousel-chat" class="flex transition-transform duration-700 ease-in-out">
-        <!-- Imagens -->
-        <img src="Img/Captura_de_tela_2025-11-02_205922-removebg-preview.png"
-             class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-             alt="Tela 1 do Chat"
-             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Imagem+Indisponível'; this.onerror=null;">
-        <img src="Img/Captura_de_tela_2025-11-02_205950-removebg-preview.png"
-             class="min-w-full object-contain max-h-[500px] mx-auto flex-shrink-0"
-             alt="Tela 2 do Chat"
-             onerror="this.src='https://placehold.co/1000x800/0f172a/e2e8f0?text=Imagem+Indisponível'; this.onerror=null;">
-      </div>
+    <!-- 2. CONTEXTO & PROBLEMA (Refinado) -->
+    <section class="grid md:grid-cols-12 gap-12 border-b border-slate-800 pb-16">
+        <div class="md:col-span-7 space-y-8">
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">O Contexto</h2>
+                <h3 class="text-2xl font-bold text-white mb-4">Barbearias Locais & Agendamento Manual</h3>
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    Pequenas barbearias dependem quase 100% do WhatsApp. O problema? O barbeiro não pode cortar cabelo e responder mensagens ao mesmo tempo. Isso gerava uma lacuna de resposta de até 2 horas.
+                </p>
+            </div>
+            
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">O Problema Real</h2>
+                <div class="p-6 bg-slate-800/50 border-l-4 border-red-500 rounded-r-lg">
+                    <h4 class="text-white font-semibold mb-2">Perda de Receita por Fricção</h4>
+                    <p class="text-slate-400">"Clientes desistem do agendamento se a resposta demora mais de 10 minutos ou se o processo exige baixar um app novo (login/senha)."</p>
+                </div>
+            </div>
 
-      <!-- Setas -->
-      <button id="prev-chat" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Slide anterior">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-      <button id="next-chat" class="absolute top-1/2 -translate-y-1/2 right-2 md:right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Próximo slide">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">O Desafio (HMW)</h2>
+                <p class="text-xl text-white font-medium">
+                    "Como podemos automatizar o agendamento mantendo a familiaridade do chat, sem exigir cadastro ou login complexo?"
+                </p>
+            </div>
+        </div>
 
-      <!-- Indicadores -->
-      <div id="indicators-chat" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
-    </div>
-  </div>
+        <div class="md:col-span-5">
+            <div class="bg-slate-800/30 p-8 rounded-2xl border border-slate-700/50 sticky top-24">
+                <h3 class="text-white font-semibold mb-6 border-b border-slate-700 pb-4">Ficha Técnica</h3>
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-slate-500 text-xs uppercase font-bold block mb-1">Meu Papel</span>
+                        <p class="text-white font-medium">Product Designer (End-to-End)</p>
+                        <p class="text-sm text-slate-400 mt-1">Liderei desde a descoberta até o código final.</p>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs uppercase font-bold block mb-1">O Que Fiz</span>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UX Research & Benchmarking</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>User Flows & Wireframing</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UI Design & Prototipagem</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Front-end (HTML/Tailwind/PHP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Script do Carrossel -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const carouselChat = document.getElementById('carousel-chat');
-      if (!carouselChat) return;
+    <!-- 3. PESQUISA & DESCOBERTA (Atualizado com Insight) -->
+    <section class="space-y-10">
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4">Pesquisa & Insights</h2>
+            <p class="text-slate-400">Antes de desenhar telas, analisei concorrentes e conversei com usuários para entender as barreiras reais.</p>
+        </div>
 
-      const totalSlidesChat = carouselChat.children.length;
-      const indicatorsContainerChat = document.getElementById('indicators-chat');
-      let indexChat = 0;
-      let slideIntervalChat;
+        <!-- >>> NOVA SEÇÃO DE INSIGHT/BENCHMARKING <<< -->
+        <div class="relative bg-gradient-to-r from-blue-900/40 to-slate-800/40 border border-blue-500/30 rounded-2xl p-8 md:p-10 my-8 overflow-hidden">
+             <!-- Elemento decorativo de fundo -->
+             <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+             
+             <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                        Insight Chave
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
+                        Benchmarking: A Prova dos Dados
+                    </h3>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+                        Analisei que <strong class="text-blue-400 font-bold">90% dos agendamentos</strong> ocorriam via texto (WhatsApp).
+                    </p>
+                    <p class="text-slate-400 mt-4">
+                        Por isso, decidi <strong>não criar um app tradicional</strong> (com menus complexos), mas sim uma <span class="text-white border-b border-blue-500/50 pb-0.5">Web App Conversacional</span>.
+                    </p>
+                </div>
+                
+                <!-- Visualização Gráfica Simples -->
+                <div class="flex-shrink-0 bg-slate-900/80 p-6 rounded-xl border border-slate-700 w-full md:w-auto min-w-[250px] shadow-xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-slate-500 uppercase font-semibold">Canais de Agendamento</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-white">Texto / Chat</span>
+                                <span class="text-blue-400 font-bold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-500">Telefone / Outros</span>
+                                <span class="text-slate-500">10%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-slate-600 h-2 rounded-full" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <!-- >>> FIM DA NOVA SEÇÃO <<< -->
 
-      // Criar bolinhas
-      if (indicatorsContainerChat) {
-        for (let i = 0; i < totalSlidesChat; i++) {
-          const button = document.createElement('button');
-          button.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
-          button.classList.add(i === 0 ? 'bg-white' : 'bg-slate-500/50', 'hover:bg-slate-300');
-          button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
-          button.addEventListener('click', () => {
-            showSlideChat(i);
-            resetIntervalChat();
-          });
-          indicatorsContainerChat.appendChild(button);
-        }
-      }
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Card 1: Benchmark (Mantido para contexto complementar) -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+                <div class="text-blue-400 mb-4 bg-blue-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <h3 class="text-white font-bold mb-2">Concorrência</h3>
+                <p class="text-slate-400 text-sm mb-3">Apps concorrentes (ex: Booksy) exigem download e cadastro.</p>
+                <div class="bg-red-500/10 text-red-300 text-xs p-2 rounded border border-red-500/20">
+                    <strong>Ponto de Dor:</strong> Barreiras de entrada altas causam abandono.
+                </div>
+            </div>
 
-      const indicatorsChat = indicatorsContainerChat ? indicatorsContainerChat.children : [];
+            <!-- Card 2: Entrevistas -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+                <div class="text-purple-400 mb-4 bg-purple-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                </div>
+                <h3 class="text-white font-bold mb-2">Entrevistas</h3>
+                <p class="text-slate-400 text-sm mb-3">Falei com 5 clientes recorrentes de barbearias.</p>
+                <div class="bg-blue-500/10 text-blue-300 text-xs p-2 rounded border border-blue-500/20">
+                    <strong>Voz do Usuário:</strong> "Eu só quero marcar o horário, não quero criar conta."
+                </div>
+            </div>
 
-      function updateIndicatorsChat(currentIndex) {
-        for (let i = 0; i < indicatorsChat.length; i++) {
-          indicatorsChat[i].classList.toggle('bg-white', i === currentIndex);
-          indicatorsChat[i].classList.toggle('bg-slate-500/50', i !== currentIndex);
-        }
-      }
+            <!-- Card 3: Solução Definida -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+                <div class="text-emerald-400 mb-4 bg-emerald-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <h3 class="text-white font-bold mb-2">Decisão Estratégica</h3>
+                <p class="text-slate-400 text-sm mb-3">Eliminar login e usar o número de telefone como ID único.</p>
+                <div class="bg-emerald-500/10 text-emerald-300 text-xs p-2 rounded border border-emerald-500/20">
+                    <strong>Ação:</strong> Interface 100% web, sem download.
+                </div>
+            </div>
+        </div>
+    </section>
 
-      function showSlideChat(i) {
-        indexChat = (i + totalSlidesChat) % totalSlidesChat;
-        carouselChat.style.transform = `translateX(-${indexChat * 100}%)`;
-        updateIndicatorsChat(indexChat);
-      }
+    <!-- 4. USER FLOW (NOVO - Ponto 5 da Lista) -->
+    <section class="py-12 border-y border-slate-800/50">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">User Flow: O Caminho Feliz</h2>
+        
+        <!-- Flowchart em CSS Puro -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+            
+            <div class="bg-slate-800 border border-slate-600 p-4 rounded-lg w-40 flex flex-col items-center">
+                <div class="text-slate-400 mb-2"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+                <span class="text-white text-sm font-semibold">Home/Link</span>
+            </div>
+            
+            <svg class="w-6 h-6 text-slate-600 rotate-90 md:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 
-      function nextSlideChat() {
-        showSlideChat(indexChat + 1);
-      }
+            <div class="bg-slate-800 border border-blue-500/50 p-4 rounded-lg w-40 flex flex-col items-center shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <div class="text-blue-400 mb-2"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+                <span class="text-white text-sm font-semibold">Escolher Serviço</span>
+                <span class="text-xs text-slate-500 mt-1">Design Conversacional</span>
+            </div>
 
-      function resetIntervalChat() {
-        clearInterval(slideIntervalChat);
-        slideIntervalChat = setInterval(nextSlideChat, 3800);
-      }
+            <svg class="w-6 h-6 text-slate-600 rotate-90 md:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 
-      document.getElementById('next-chat')?.addEventListener('click', () => {
-        nextSlideChat();
-        resetIntervalChat();
-      });
+            <div class="bg-slate-800 border border-slate-600 p-4 rounded-lg w-40 flex flex-col items-center">
+                <div class="text-slate-400 mb-2"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                <span class="text-white text-sm font-semibold">Selecionar Horário</span>
+            </div>
 
-      document.getElementById('prev-chat')?.addEventListener('click', () => {
-        showSlideChat(indexChat - 1);
-        resetIntervalChat();
-      });
+            <svg class="w-6 h-6 text-slate-600 rotate-90 md:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 
-      slideIntervalChat = setInterval(nextSlideChat, 3800);
-    });
-  </script>
-</section>
+            <div class="bg-emerald-900/20 border border-emerald-500/50 p-4 rounded-lg w-40 flex flex-col items-center">
+                <div class="text-emerald-400 mb-2"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                <span class="text-emerald-100 text-sm font-semibold">Confirmação</span>
+            </div>
 
+        </div>
+        <p class="text-center text-slate-500 text-sm mt-6">Reduzimos o fluxo de 6 etapas (padrão de mercado) para apenas 3 interações principais.</p>
+    </section>
 
-    <!-- Estudo de Caso -->
+    <!-- 5. WIREFRAMES (NOVO - Ponto 6 da Lista) -->
     <section>
-      <h2 class="text-3xl font-semibold text-white mb-6">Estudo de Caso</h2>
-      <div class="space-y-6 text-slate-300 leading-relaxed max-w-4xl text-lg">
-        <p>
-          O projeto foi criado com o objetivo de digitalizar e otimizar a rotina de barbearias, 
-          permitindo que os clientes agendem serviços de forma rápida e prática através da plataforma, 
-          enquanto os donos gerenciam horários, clientes e serviços de maneira eficiente.
-        </p>
-        <p>
-          Através de um design centrado no usuário e de uma arquitetura organizada, 
-          o sistema tornou o processo de agendamento mais acessível e visualmente agradável, 
-          reduzindo o tempo de atendimento e aumentando a satisfação dos clientes.
-        </p>
-        <p>
-          A plataforma também possibilita ao administrador controlar agendamentos,
-          gerenciar preços e acompanhar métricas de desempenho. O resultado é um sistema funcional, moderno 
-          e com design responsivo.
-        </p>
-      </div>
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-2">Wireframes & Estrutura</h2>
+                <p class="text-slate-400 max-w-lg">Foco na hierarquia da interface do cliente (Chat). A estrutura foi desenhada para mimetizar uma conversa natural.</p>
+            </div>
+            <div class="hidden md:block">
+                <span class="px-3 py-1 text-xs font-mono text-slate-400 border border-slate-700 rounded">Low-Fidelity</span>
+            </div>
+        </div>
+
+        <!-- Wireframes Simulados com CSS (Skeletons) - Estilo CHAT -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            <!-- Wireframe 1: Início (Mensagem do Bot) -->
+            <div class="aspect-[9/16] bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col relative overflow-hidden group hover:border-slate-600 transition-colors">
+                <p class="text-xs text-slate-500 font-mono mb-2 text-center absolute top-2 left-0 right-0 uppercase tracking-wider">1. Boas-vindas</p>
+                <div class="mt-6 space-y-3 w-full">
+                    <!-- Avatar Bot -->
+                    <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 mb-1"></div>
+                    <!-- Bolha Bot -->
+                    <div class="bg-slate-800 rounded-2xl rounded-tl-none p-3 w-3/4">
+                        <div class="w-full h-2 bg-slate-700/50 rounded mb-2"></div>
+                        <div class="w-1/2 h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                </div>
+                <div class="mt-auto w-full">
+                    <!-- Botão CTA -->
+                    <div class="w-full h-10 bg-slate-800 border-2 border-dashed border-slate-700 rounded-xl flex items-center justify-center">
+                        <div class="w-20 h-2 bg-slate-700 rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wireframe 2: Seleção (Opções) -->
+            <div class="aspect-[9/16] bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col relative overflow-hidden group hover:border-slate-600 transition-colors">
+                <p class="text-xs text-slate-500 font-mono mb-2 text-center absolute top-2 left-0 right-0 uppercase tracking-wider">2. Serviços</p>
+                <div class="mt-6 w-full space-y-2">
+                    <!-- Bolha Bot -->
+                    <div class="bg-slate-800 rounded-2xl rounded-tl-none p-3 w-2/3 mb-4">
+                        <div class="w-full h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                    <!-- Opções de Resposta -->
+                    <div class="w-full h-10 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center px-3">
+                        <div class="w-1/3 h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                    <div class="w-full h-10 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center px-3">
+                        <div class="w-1/2 h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                    <div class="w-full h-10 bg-slate-800/50 border border-slate-700 rounded-lg flex items-center px-3">
+                        <div class="w-1/4 h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wireframe 3: Interação (Resposta do Usuário) -->
+            <div class="aspect-[9/16] bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col relative overflow-hidden group hover:border-slate-600 transition-colors">
+                <p class="text-xs text-slate-500 font-mono mb-2 text-center absolute top-2 left-0 right-0 uppercase tracking-wider">3. Horários</p>
+                <div class="mt-6 w-full space-y-4">
+                    <!-- Bolha Bot -->
+                    <div class="bg-slate-800 rounded-2xl rounded-tl-none p-3 w-2/3">
+                        <div class="w-3/4 h-2 bg-slate-700/50 rounded"></div>
+                    </div>
+                    
+                    <!-- Bolha Usuário (Direita) -->
+                    <div class="flex justify-end">
+                        <div class="bg-blue-900/20 border border-blue-900/30 rounded-2xl rounded-tr-none p-3 w-1/2">
+                            <div class="w-full h-2 bg-blue-800/40 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teclado simulado -->
+                <div class="grid grid-cols-3 gap-1 mt-auto opacity-50">
+                    <div class="h-6 bg-slate-800 rounded"></div><div class="h-6 bg-slate-800 rounded"></div><div class="h-6 bg-slate-800 rounded"></div>
+                    <div class="h-6 bg-slate-800 rounded"></div><div class="h-6 bg-slate-800 rounded"></div><div class="h-6 bg-slate-800 rounded"></div>
+                </div>
+            </div>
+
+            <!-- Wireframe 4: Ticket (Confirmação) -->
+            <div class="aspect-[9/16] bg-slate-900 rounded-2xl border border-slate-800 p-4 flex flex-col relative overflow-hidden group hover:border-slate-600 transition-colors">
+                <p class="text-xs text-slate-500 font-mono mb-2 text-center absolute top-2 left-0 right-0 uppercase tracking-wider">4. Ticket Final</p>
+                <div class="mt-8 flex-1 flex flex-col items-center">
+                    <!-- Card de Confirmação -->
+                    <div class="w-full bg-slate-800 rounded-xl p-4 border border-slate-700/50 relative">
+                        <!-- Recorte do Ticket (Círculos laterais) -->
+                        <div class="absolute top-1/2 -left-2 w-4 h-4 bg-slate-900 rounded-full"></div>
+                        <div class="absolute top-1/2 -right-2 w-4 h-4 bg-slate-900 rounded-full"></div>
+                        
+                        <div class="flex justify-center mb-3">
+                            <div class="w-8 h-8 rounded-full border border-slate-600 flex items-center justify-center">
+                                <div class="w-3 h-2 border-b-2 border-r-2 border-slate-500 rotate-45 mb-1"></div>
+                            </div>
+                        </div>
+                        <div class="w-3/4 h-2 bg-slate-700/50 rounded mx-auto mb-2"></div>
+                        <div class="w-1/2 h-2 bg-slate-700/50 rounded mx-auto mb-4"></div>
+                        <div class="w-full h-px bg-slate-700 border-dashed mb-3"></div>
+                        <div class="w-1/3 h-2 bg-slate-700/50 rounded mx-auto"></div>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <div class="w-full h-10 bg-slate-800 border border-slate-700 rounded-lg text-[9px] text-center flex items-center justify-center text-slate-500">Agendar Novo Horário</div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
-    <!-- Ferramentas e Tecnologias -->
-    <section>
-      <h2 class="text-3xl font-semibold text-white mb-6">Ferramentas e Tecnologias Utilizadas</h2>
-      <div class="flex flex-wrap gap-4">
-        <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">HTML</span>
-        <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">CSS</span>
-        <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">JavaScript</span>
-        <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">PHP</span>
-        <span class="bg-slate-700 text-blue-300 py-2 px-4 rounded-full font-medium text-sm">Figma</span>
-      </div>
+    <!-- 6. UI FINAL & DECISÕES (Atualizado com Ponto 8 - Decisões) -->
+    <section class="py-12 border-t border-slate-800 mt-12">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Interface Final & Decisões de Design</h2>
+        
+        <div class="grid md:grid-cols-12 gap-12 items-start">
+            
+            <!-- Coluna Esquerda: O App (Mobile) - AJUSTADO: Com Retângulo de Fundo (Card) -->
+            <div class="md:col-span-5 md:sticky md:top-24">
+                 <!-- Container/Retângulo de Fundo -->
+                 <div class="bg-slate-800/40 rounded-3xl p-8 border border-slate-700/50 flex justify-center items-center relative overflow-hidden group">
+                     <!-- Efeitos de luz sutis no fundo (Opcional, para dar profundidade) -->
+                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+                     <div class="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -ml-10 -mb-10 pointer-events-none"></div>
+
+                     <!-- Mockup do Celular Centralizado -->
+                     <div class="relative w-full max-w-[240px] bg-slate-900 rounded-[2.5rem] shadow-2xl border-[8px] border-slate-900 ring-1 ring-white/10 overflow-hidden z-10 transition-transform duration-500 group-hover:scale-[1.02]">
+                         <!-- Notch / Câmera -->
+                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-slate-900 rounded-b-xl z-20"></div>
+                         
+                         <!-- Tela do Dispositivo -->
+                         <div class="bg-slate-900 relative aspect-[9/19]">
+                             <!-- Carrossel Chat -->
+                             <div id="carousel-chat" class="flex transition-transform duration-700 ease-in-out h-full">
+                               <img src="Img/Captura_de_tela_2025-11-02_205922-removebg-preview.png" class="object-cover w-full h-full" alt="Chat Tela 1" onerror="this.src='https://placehold.co/400x800/0f172a/e2e8f0?text=UI+Final+1'; this.onerror=null;">
+                               <img src="Img/Captura_de_tela_2025-11-02_205950-removebg-preview.png" class="object-cover w-full h-full" alt="Chat Tela 2" onerror="this.src='https://placehold.co/400x800/0f172a/e2e8f0?text=UI+Final+2'; this.onerror=null;">
+                            </div>
+                             
+                             <!-- Controles do Carrossel (Sobre a tela) -->
+                             <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10" id="indicators-chat"></div>
+                             <button id="prev-chat" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 p-2 rounded-full text-white backdrop-blur-sm hover:bg-black/50 transition-colors z-10"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                             <button id="next-chat" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 p-2 rounded-full text-white backdrop-blur-sm hover:bg-black/50 transition-colors z-10"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+                          </div>
+                      </div>
+                 </div>
+                 <p class="text-center text-xs text-slate-500 mt-4 font-medium">Interface Mobile (Interativa)</p>
+            </div>
+
+            <!-- Coluna Direita: Explicações (Decisões de Design) -->
+            <div class="md:col-span-7 space-y-12">
+                
+                <!-- Decisão 1 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">1</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2">Familiaridade Cognitiva</h4>
+                        <p class="text-slate-400 leading-relaxed">
+                            Ao invés de formulários tradicionais, usei bolhas de conversa. Isso reduz a ansiedade do usuário, pois o modelo mental é idêntico ao WhatsApp, ferramenta que ele já domina.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decisão 2 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold">2</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2">Lei de Fitts & Thumb Zone</h4>
+                        <p class="text-slate-400 leading-relaxed">
+                            Os botões de seleção de serviço têm altura de <span class="text-purple-300 font-mono">56px</span> e ocupam a largura total. Isso facilita o toque com o polegar (thumb zone) e evita erros de clique (misclicks).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decisão 3 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">3</div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2">Feedback Imediato</h4>
+                        <p class="text-slate-400 leading-relaxed">
+                            Diferente de sistemas que enviam e-mail de confirmação, o app dá feedback visual instantâneo na tela e permite download direto do lembrete, fechando o loop de confirmação em segundos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Style Guide Mini -->
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700 mt-8">
+                    <h5 class="text-xs uppercase font-bold text-slate-500 mb-4">Design System Simplificado</h5>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded bg-[#00C2A8] shadow-lg shadow-emerald-500/20"></div>
+                            <span class="text-xs text-slate-300">Primary</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded bg-[#333333] border border-slate-600"></div>
+                            <span class="text-xs text-slate-300">Surface</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-sans font-bold text-2xl text-white">Aa</span>
+                            <span class="text-xs text-slate-300">Inter</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
-    <!-- Botões para Figma e GitHub -->
-    <section class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-      <a href="https://www.figma.com/design/EnMkWmpDkllYTlLBUGLgEE/Painel-de-Gest%C3%A3o-De-Servi%C3%A7os?node-id=0-1&t=jXu3ZO3uCq28SXcp-1" target="_blank" rel="noopener noreferrer"
-         class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-base">
-        <!-- Ícone do Figma atualizado -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C12 10.3431 10.6569 9 9 9C7.34315 9 6 10.3431 6 12C6 13.6569 7.34315 15 9 15C10.6569 15 12 13.6569 12 12Z"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.34315 3 6 4.34315 6 6V12C6 10.3431 7.34315 9 9 9H15C13.3431 9 12 7.65685 12 6C12 4.34315 10.6569 3 9 3Z"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 9H9C7.34315 9 6 10.3431 6 12V18C6 19.6569 7.34315 21 9 21C10.6569 21 12 19.6569 12 18C12 16.3431 10.6569 15 9 15H15C16.6569 15 18 13.6569 18 12C18 10.3431 16.6569 9 15 9Z"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 9H18C19.6569 9 21 10.3431 21 12C21 13.6569 19.6569 15 18 15C16.3431 15 15 13.6569 15 12V9Z"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C12 7.65685 13.3431 9 15 9H12V6Z"/>
-        </svg>
-        Ver no Figma
-      </a>
-      <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" rel="noopener noreferrer"
-         class="flex items-center justify-center gap-3 w-full sm:w-auto py-3 px-6 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-slate-500/30 text-base">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3-2.5 -6-3m12 5v-3.5c0-1 .1-1.4 -.5-2c2.8-.3 5.5-1.4 5.5-6c0-1.3-.5-2.4 -1.3-3.1c.1-.3.6-1.5 0-3.1c0 0-1.1-.4 -3.5 1.3c-1-.3 -2.1-.4 -3.2-.4c-1.1 0 -2.2.1 -3.2.4C6.1 2.8 5 3.2 5 3.2c-.6 1.6 -.1 2.8 0 3.1C4.2 7.1 3.7 8.1 3.T7 9.4c0 4.6 2.7 5.7 5.5 6c-.6.5 -.9 1.2 -.9 2.2v3.5"/></svg>
-        Ver no GitHub
-      </a>
+    <!-- 6.5 NOVA SEÇÃO: Dashboard Administrativo -->
+    <section class="py-12 border-t border-slate-800">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <!-- Text/Explanation Side (Left) -->
+            <!-- CORREÇÃO: Removido 'order-2 md:order-1' para o texto ficar em cima no mobile -->
+            <div class="md:col-span-6 space-y-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">O Lado do Profissional: Dashboard de Gestão</h3>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Enquanto o cliente conversa com o "Bot", o barbeiro recebe tudo estruturado em um painel administrativo. O objetivo aqui foi <strong>eliminar o ruído</strong> e focar no que importa: o próximo corte.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-slate-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                        <h4 class="font-bold text-white">Sincronização em Tempo Real</h4>
+                        <p class="text-sm text-slate-400">Assim que o cliente confirma o horário no chat, o slot é bloqueado na agenda do barbeiro instantaneamente.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Funcionalidades Chave</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span class="text-slate-300"><strong class="text-white">Agenda Visual:</strong> Cards grandes e legíveis para consulta rápida entre atendimentos.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span class="text-slate-300"><strong class="text-white">Controle de Receita:</strong> Métricas financeiras simplificadas (Diário/Mensal) sem complexidade de ERP.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                                <span class="text-slate-300"><strong class="text-white">Relatórios Rápidos:</strong> Visão clara de quais serviços são mais rentáveis.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Side (Right) -->
+            <!-- CORREÇÃO: Removido 'order-1 md:order-2' para ficar abaixo do texto no mobile -->
+            <div class="md:col-span-6">
+                <div class="relative w-full overflow-hidden rounded-xl shadow-2xl bg-slate-900 border border-slate-800">
+                    <!-- Wrapper for Aspect Ratio consistency (Melhorado para Mobile) -->
+                    <!-- Mobile: aspect-[3/4] (mais alto para ver melhor) | Desktop: aspect-video (widescreen) -->
+                    <div class="aspect-[3/4] md:aspect-video bg-slate-800 relative flex items-center justify-center overflow-hidden">
+                         <div id="carousel" class="flex transition-transform duration-700 ease-in-out w-full h-full">
+                            <!-- Imagens ajustadas: object-center no mobile para centralizar -->
+                            <img src="Img/tela_1_png_-removebg-preview.png" class="object-cover object-center md:object-contain md:object-center w-full h-full" alt="Dashboard Overview" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Dashboard+Home'; this.onerror=null;">
+                            <img src="Img/tela_2_png-removebg-preview.png" class="object-cover object-center md:object-contain md:object-center w-full h-full" alt="Dashboard Início" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Dashboard+Início'; this.onerror=null;">
+                            <img src="Img/tela_4_png-removebg-preview.png" class="object-cover object-center md:object-contain md:object-center w-full h-full" alt="Dashboard Clientes" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Dashboard+Clientes'; this.onerror=null;">
+                            <img src="Img/tela_3_png-removebg-preview.png" class="object-cover object-center md:object-contain md:object-center w-full h-full" alt="Agenda View" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Dashboard+Agenda'; this.onerror=null;">
+                            <img src="Img/tela_5_png-removebg-preview.png" class="object-cover object-center md:object-contain md:object-center w-full h-full" alt="Reports View" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Dashboard+Relatórios'; this.onerror=null;">
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="indicators"></div>
+                    <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                    <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+                </div>
+                <p class="text-center text-xs text-slate-500 mt-3 hidden md:block">Painel desktop responsivo.</p>
+                <p class="text-center text-xs text-slate-500 mt-3 md:hidden">Toque nas setas para navegar. Zoom aplicado para melhor leitura.</p>
+            </div>
+        </div>
     </section>
+
+    <!-- 7. RESULTADOS & IMPACTO (NOVO - Ponto 9 da Lista) -->
+    <section class="py-16 mt-12 bg-gradient-to-br from-slate-800/50 to-slate-900/50 -mx-6 px-6 border-y border-slate-800">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Resultados & Impacto</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Comparativo de Tempo (Gráfico de Barras) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-700 hover:border-blue-500/30 transition-colors">
+                    <h3 class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-6">Tempo de Agendamento</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Barra 1: Telefone -->
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-500 mb-1">
+                                <span>Telefone/WhatsApp</span>
+                                <span>~4 min</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="bg-slate-600 h-full rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Barra 2: App (Solução) -->
+                        <div>
+                            <div class="flex justify-between text-xs text-white font-bold mb-1">
+                                <span class="text-blue-400">Nova Solução</span>
+                                <span>45s</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="bg-blue-500 h-full rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]" style="width: 18%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center gap-2 text-green-400 bg-green-400/10 p-2 rounded-lg w-fit">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        <span class="text-xs font-bold">81% mais rápido</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Fricção (Gráfico de Comparação) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-700 hover:border-emerald-500/30 transition-colors">
+                    <h3 class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-6">Fricção de Entrada</h3>
+                    
+                    <div class="flex items-end justify-between h-24 mb-2 px-4 border-b border-slate-800 pb-2">
+                        <!-- Coluna Concorrente -->
+                        <div class="flex flex-col items-center gap-2 w-1/3 group">
+                            <div class="text-[10px] text-slate-500 text-center opacity-0 group-hover:opacity-100 transition-opacity absolute -mt-6">Login Obrigatório</div>
+                            <div class="w-full bg-slate-700 rounded-t-lg h-20 relative hover:bg-red-500/20 transition-colors"></div>
+                            <span class="text-xs text-slate-500 font-mono">Apps</span>
+                        </div>
+
+                        <!-- Coluna Solução -->
+                        <div class="flex flex-col items-center gap-2 w-1/3">
+                            <div class="w-full bg-emerald-500/20 border-t-2 border-emerald-500 rounded-t-lg h-2 relative shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                <span class="absolute -top-8 left-1/2 -translate-x-1/2 text-2xl font-bold text-white">0</span>
+                            </div>
+                            <span class="text-xs text-white font-bold font-mono">Este App</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+                        A remoção da barreira de login/senha aumentou a taxa de conversão no primeiro acesso.
+                    </p>
+                </div>
+
+                <!-- Card 3: Autonomia (Gráfico Circular) -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-700 hover:border-purple-500/30 transition-colors flex flex-col items-center text-center">
+                    <h3 class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-6 w-full text-left">Nível de Autonomia</h3>
+                    
+                    <div class="relative w-32 h-32 mb-2">
+                        <svg class="w-full h-full transform -rotate-90">
+                            <!-- Círculo Fundo -->
+                            <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent" class="text-slate-800" />
+                            <!-- Círculo Progresso -->
+                            <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent" stroke-dasharray="351.8" stroke-dashoffset="0" class="text-purple-500 drop-shadow-[0_0_10px_rgba(168,85,247,0.4)]" />
+                        </svg>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                            <span class="text-3xl font-bold text-white">100%</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-white font-medium mt-2">Gestão Automatizada</p>
+                    <p class="text-xs text-slate-500 mt-1">Barbeiro foca apenas no corte.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FRONT-END / HANDOFF -->
+    <section class="py-16">
+        <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold text-white">Gostou da solução?</h3>
+                <p class="text-slate-400 max-w-xl">
+                    Além do design, desenvolvi a aplicação completa para validar a viabilidade técnica. O código é aberto e está disponível para análise.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-slate-900 text-yellow-300 text-xs font-mono rounded border border-slate-700">JavaScript</span>
+                    <span class="px-2 py-1 bg-slate-900 text-orange-300 text-xs font-mono rounded border border-slate-700">HTML</span>
+                    <span class="px-2 py-1 bg-slate-900 text-indigo-300 text-xs font-mono rounded border border-slate-700">PHP</span>
+                    <span class="px-2 py-1 bg-slate-900 text-blue-300 text-xs font-mono rounded border border-slate-700">CSS</span>
+                    <span class="px-2 py-1 bg-slate-900 text-pink-300 text-xs font-mono rounded border border-slate-700">Figma</span>
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" class="px-6 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    Ver Código
+                </a>
+                <a href="https://www.figma.com/design/EnMkWmpDkllYTlLBUGLgEE/Painel-de-Gest%C3%A3o-De-Servi%C3%A7os?node-id=0-1&t=jXu3ZO3uCq28SXcp-1" target="_blank" class="px-6 py-3 bg-transparent border border-slate-600 text-white font-semibold rounded-lg hover:border-white transition-colors flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5 12C5.5 10.3431 6.84315 9 8.5 9H11.5V12H8.5C6.84315 12 5.5 10.6569 5.5 12Z" fill="currentColor"/>
+                        <path d="M5.5 18C5.5 16.3431 6.84315 15 8.5 15H11.5V18C11.5 19.6569 10.1569 21 8.5 21C6.84315 21 5.5 19.6569 5.5 18Z" fill="currentColor"/>
+                        <path d="M8.5 3C6.84315 3 5.5 4.34315 5.5 6C5.5 7.65685 6.84315 9 8.5 9H11.5V6C11.5 4.34315 10.1569 3 8.5 3Z" fill="currentColor"/>
+                        <path d="M12.5 3H15.5C17.1569 3 18.5 4.34315 18.5 6C18.5 7.65685 17.1569 9 15.5 9H12.5V3Z" fill="currentColor"/>
+                        <path d="M18.5 12C18.5 13.6569 17.1569 15 15.5 15H12.5V12H15.5C17.1569 12 18.5 10.6569 18.5 9Z" fill="currentColor"/>
+                    </svg>
+                    Ver Figma
+                </a>
+            </div>
+        </div>
+    </section>
+
   </main>
 
-  <!-- Rodapé -->
-  <footer class="bg-slate-900/50 border-t border-slate-700 mt-20 md:mt-32">
-    <div class="container mx-auto px-6 py-8 text-center text-slate-400 text-sm">
-      <p>&copy; 2025 <a href="index.html" class="font-semibold hover:text-blue-400 transition-colors">Nicolas Villela</a>. Todos os direitos reservados.</p>
-    </div>
+  <footer class="bg-slate-900 border-t border-slate-800 mt-12 py-12 text-center">
+    <p class="text-slate-500 mb-2">Designed & Developed by Nicolas Villela</p>
+    <p class="text-xs text-slate-600">&copy; 2026 Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Scripts do Carrossel (Mantidos) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        setupCarousel('carousel', 'prev', 'next', 'indicators'); // Se você tiver o ID carousel em algum lugar
+        setupCarousel('carousel-chat', 'prev-chat', 'next-chat', 'indicators-chat');
+
+        function setupCarousel(listId, prevBtnId, nextBtnId, indicatorsId) {
+            const list = document.getElementById(listId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const indicatorsContainer = document.getElementById(indicatorsId);
+            
+            if (!list) return;
+
+            const items = list.children;
+            const totalSlides = items.length;
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            if (indicatorsContainer) {
+                indicatorsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-white w-4 shadow-white/50 shadow-sm' : 'bg-slate-600 hover:bg-slate-400'}`;
+                    dot.onclick = () => { showSlide(i); resetTimer(); };
+                    indicatorsContainer.appendChild(dot);
+                }
+            }
+
+            function updateIndicators() {
+                if (!indicatorsContainer) return;
+                Array.from(indicatorsContainer.children).forEach((dot, index) => {
+                    dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white w-4 shadow-white/50 shadow-sm' : 'bg-slate-600 hover:bg-slate-400'}`;
+                });
+            }
+
+            function showSlide(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                list.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateIndicators();
+            }
+
+            function nextSlide() { showSlide(currentIndex + 1); }
+            function prevSlide() { showSlide(currentIndex - 1); }
+
+            function resetTimer() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+
+            if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+            if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+
+            resetTimer();
+        }
+    });
+  </script>
 </body>
 </html>
 
