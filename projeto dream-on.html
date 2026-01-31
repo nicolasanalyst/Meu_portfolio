@@ -38,6 +38,7 @@
       min-width: 100%;      
       width: 100%;
     }
+    
     /* Padrão para áreas de placeholder (Wireframes) */
     .pattern-grid {
       background-image: radial-gradient(#334155 1px, transparent 1px);
@@ -100,9 +101,9 @@
       </p>
     </section>
 
-    <!-- 2. CONTEXTO & PROBLEMA -->
+    <!-- 2. CONTEXTO & PROBLEMA (Ajustado para Centralizar no Mobile) -->
     <section class="grid md:grid-cols-12 gap-12 border-b border-slate-800 pb-16">
-        <div class="md:col-span-7 space-y-8">
+        <div class="md:col-span-7 space-y-8 text-center md:text-left">
             <div>
                 <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">O Contexto</h2>
                 <h3 class="text-2xl font-bold text-white mb-4">Salões de Festas & Presença Digital</h3>
@@ -113,7 +114,8 @@
             
             <div>
                 <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-3">O Problema</h2>
-                <div class="p-6 bg-slate-800/50 border-l-4 border-red-500 rounded-r-lg">
+                <!-- Card de problema: Centralizado no mobile -->
+                <div class="p-6 bg-slate-800/50 border-l-4 border-red-500 rounded-r-lg text-center md:text-left">
                     <h4 class="text-white font-semibold mb-2">Falta de Centralização</h4>
                     <p class="text-slate-400">"Clientes se perdem em feeds de Instagram procurando fotos do ambiente ou informações de contato, gerando atrito na conversão."</p>
                 </div>
@@ -128,7 +130,7 @@
         </div>
 
         <div class="md:col-span-5">
-            <div class="bg-slate-800/30 p-8 rounded-2xl border border-slate-700/50 sticky top-24">
+            <div class="bg-slate-800/30 p-8 rounded-2xl border border-slate-700/50 sticky top-24 text-center md:text-left">
                 <h3 class="text-white font-semibold mb-6 border-b border-slate-700 pb-4">Ficha Técnica</h3>
                 <div class="space-y-6">
                     <div>
@@ -143,9 +145,9 @@
                     <div>
                         <span class="text-slate-500 text-xs uppercase font-bold block mb-1">O Que Fiz</span>
                         <ul class="text-slate-300 text-sm space-y-2">
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UX Research & Benchmarking</li>
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UI Design & Prototipagem</li>
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Front-end (HTML/CSS/JavaScript)</li>
+                            <li class="flex items-center justify-center md:justify-start gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UX Research & Benchmarking</li>
+                            <li class="flex items-center justify-center md:justify-start gap-2"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>UI Design & Prototipagem</li>
+                            <li class="flex items-center justify-center md:justify-start gap-2"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>Front-end (HTML/CSS/JavaScript)</li>
                         </ul>
                     </div>
                 </div>
@@ -208,8 +210,8 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- Card 1: Benchmark -->
-            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+            <!-- Card 1: Benchmark (Centralizado no Mobile) -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="text-blue-400 mb-4 bg-blue-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 </div>
@@ -220,8 +222,8 @@
                 </div>
             </div>
 
-            <!-- Card 2: Entrevistas -->
-            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+            <!-- Card 2: Entrevistas (Centralizado no Mobile) -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="text-purple-400 mb-4 bg-purple-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
                 </div>
@@ -232,8 +234,8 @@
                 </div>
             </div>
 
-            <!-- Card 3: Solução -->
-            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700">
+            <!-- Card 3: Solução (Centralizado no Mobile) -->
+            <div class="bg-slate-800/20 p-6 rounded-xl border border-slate-700 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="text-emerald-400 mb-4 bg-emerald-500/10 w-10 h-10 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
@@ -324,11 +326,12 @@
                           <!-- Tela do Site Desktop -->
                           <div class="bg-slate-900 relative aspect-video">
                              <div id="carousel-desktop" class="flex transition-transform duration-700 ease-in-out h-full">
-                                <img src="Img/tela_1_web-removebg-preview.png" alt="Home Page" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Home'; this.onerror=null;">
-                                <img src="Img/tela_2_web-removebg-preview.png" alt="Sobre" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Sobre'; this.onerror=null;">
-                                <img src="Img/tela_3_web-removebg-preview.png" alt="Galeria" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Galeria'; this.onerror=null;">
-                                <img src="Img/tela_4_web-removebg-preview.png" alt="Eventos" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Eventos'; this.onerror=null;">
-                                 <img src="Img/tela_5_web-removebg-preview.png" alt="Eventos" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Eventos'; this.onerror=null;">
+                                <img src="Img/tela01nova.png" alt="Home Page" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Home'; this.onerror=null;">
+                                <img src="Img/tela02nova.png" alt="Sobre" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Sobre'; this.onerror=null;">
+                                <img src="Img/tela03nova.png" alt="Galeria" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Galeria'; this.onerror=null;">
+                                <img src="Img/tela04nova.png" alt="Eventos" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Eventos'; this.onerror=null;">
+                                 <img src="Img/tela05nova.png" alt="Agendar" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Agendar'; this.onerror=null;">
+                                 <img src="Img/tela06nova.png" alt="Contato" onerror="this.src='https://placehold.co/1200x800/0f172a/e2e8f0?text=Desktop+Contato'; this.onerror=null;">
                             </div>
                           </div>
                       </div>
@@ -473,13 +476,13 @@
 
     <!-- 6. HANDOFF / FOOTER -->
     <section class="py-16 border-t border-slate-800">
-        <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div class="space-y-4">
                 <h3 class="text-2xl font-bold text-white">Explore o projeto</h3>
                 <p class="text-slate-400 max-w-xl">
                     O código fonte está disponível no GitHub e o protótipo de alta fidelidade pode ser visualizado no Figma.
                 </p>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start">
                     <span class="px-2 py-1 bg-slate-900 text-orange-300 text-xs font-mono rounded border border-slate-700">HTML5</span>
                     <span class="px-2 py-1 bg-slate-900 text-blue-300 text-xs font-mono rounded border border-slate-700">CSS3</span>
                     <span class="px-2 py-1 bg-slate-900 text-yellow-300 text-xs font-mono rounded border border-slate-700">JS</span>
@@ -550,5 +553,3 @@
   </script>
 </body>
 </html>
-
-
