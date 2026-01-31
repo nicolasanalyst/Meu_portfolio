@@ -27,18 +27,16 @@
       body {
         font-family: 'Inter', sans-serif;
       }
-      
-      /* Títulos usam Playfair por padrão */
+    
       h1, h2, h3, .font-playfair {
         font-family: 'Inter', sans-serif;
       }
 
-      /* Classe para forçar a fonte Inter onde solicitado (amarelo) */
       .font-inter {
         font-family: 'Inter', sans-serif;
       }
 
-      /* Hero Section - Fundo Escuro (Visual da Foto) */
+
       .hero-bg {
         background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url('img/fotosalao_01.jpg'); 
         background-size: cover;
@@ -83,10 +81,10 @@
   </head>
   <body class="bg-white text-gray-800">
     
-    <!-- HEADER -->
+    
     <header class="absolute top-0 left-0 right-0 z-50 w-full pt-6 px-4 md:px-8 transition-all duration-300" id="mainHeader">
       <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
+        
         <a href="#" title="Página Inicial" class="flex-shrink-0 z-50">
           <img
             src="img/logo_espaco_dream_on.png"
@@ -95,7 +93,7 @@
           />
         </a>
 
-        <!-- Navegação Desktop -->
+        
         <nav class="hidden md:flex flex-1 justify-center items-center space-x-8 text-white font-semibold tracking-wide">
           <a href="#servicos" class="nav-link hover:text-white transition-colors">Serviços</a>
           <a href="#galeria" class="nav-link hover:text-white transition-colors">Galeria</a>
@@ -105,7 +103,7 @@
           <a href="#localizacao" class="nav-link hover:text-white transition-colors">Localização</a>
         </nav>
 
-        <!-- Botão Agendar -->
+        
         <div class="hidden md:block flex-shrink-0">
             <a 
                 href="#contato" 
@@ -115,13 +113,13 @@
             </a>
         </div>
 
-        <!-- Botão Mobile -->
+        
         <button id="mobileMenuBtn" class="md:hidden text-white z-50 focus:outline-none p-2">
             <i data-lucide="menu" class="w-8 h-8"></i>
         </button>
       </div>
 
-      <!-- Menu Mobile -->
+      
       <div id="mobileMenu" class="fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center space-y-8 text-white text-xl transform translate-x-full transition-transform duration-300 md:hidden">
          <a href="#servicos" class="mobile-link hover:text-yellow-400 transition">Serviços</a>
          <a href="#galeria" class="mobile-link hover:text-yellow-400 transition">Galeria</a>
@@ -132,7 +130,7 @@
       </div>
     </header>
 
-    <!-- HERO SECTION -->
+    
     <section class="hero-bg text-white text-center px-4">
       <div class="max-w-6xl mx-auto flex flex-col items-center animate-fade-in-up pt-10">
         
@@ -167,7 +165,7 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    
     <section id="servicos" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -224,7 +222,7 @@
       </div>
     </section>
 
-    <!-- GALERIA -->
+  
     <section id="galeria" class="py-20">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -254,7 +252,7 @@
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
+  
     <section id="depoimentos" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -292,7 +290,7 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    
     <section id="faq" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center">
@@ -363,7 +361,7 @@
       </div>
     </section>
 
-    <!-- CONTATO -->
+    
     <section id="contato" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center">
@@ -480,13 +478,13 @@
       </div>
     </footer>
 
-    <!-- MODAL GALERIA -->
+    
     <div
       id="galleryModal"
       class="hidden fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center p-4"
     >
       <div class="relative w-full max-w-4xl">
-        <!-- BOTÃO FECHAR MINIMALISTA (SÓ O ÍCONE) -->
+        
         <button
           id="closeModal"
           class="fixed top-4 right-4 z-[10001] text-white hover:text-yellow-400 transition-colors p-2"
@@ -503,13 +501,13 @@
     </div>
 
     <script>
-      // Icons Initialization
+      
       lucide.createIcons();
 
-      // Set Current Year
+   
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-      // Mobile Menu Logic
+      
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -540,7 +538,7 @@
         });
       });
 
-      // Gallery Modal Logic
+      
       const galleryModal = document.getElementById('galleryModal');
       const modalImage = document.getElementById('modalImage');
       const galleryImages = document.querySelectorAll('.gallery-img');
@@ -563,7 +561,7 @@
         }
       });
 
-      // FAQ Logic
+      
       const faqQuestions = document.querySelectorAll('.faq-question');
       faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
@@ -580,7 +578,7 @@
         });
       });
 
-      // Navbar Scroll Effect
+     
       const header = document.getElementById('mainHeader');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -593,7 +591,7 @@
         }
       });
 
-      // WhatsApp Form Handler
+     
       const form = document.getElementById('agendamentoForm');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
