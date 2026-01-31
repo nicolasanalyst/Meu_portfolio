@@ -1,454 +1,611 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Villela | Portfólio</title>
-    <!-- Tailwind CSS CDN -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Espaço Dream On</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/fotodreanon.png"
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon (Emoji) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
-    
-    <!-- Link para o seu arquivo CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <script>
-        // Configuração do tema escuro padrão para o Tailwind
-        tailwind.config = {
-            darkMode: 'class', // Ativa o modo escuro manual ou baseado na classe
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                },
-            },
-        }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Animação de Brilho (Shine) Personalizada */
-        @keyframes shimmer-effect {
-            0% { transform: translateX(-150%) skewX(-15deg); }
-            30% { transform: translateX(150%) skewX(-15deg); }
-            100% { transform: translateX(150%) skewX(-15deg); }
-        }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Títulos usam Playfair por padrão */
+      h1, h2, h3, .font-playfair {
+        font-family: 'Inter', sans-serif;
+      }
 
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-            /* Garante que o brilho não saia do botão */
-        }
+      /* Classe para forçar a fonte Inter onde solicitado (amarelo) */
+      .font-inter {
+        font-family: 'Inter', sans-serif;
+      }
 
-        .btn-shine::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            /* Gradiente branco transparente para simular luz */
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
-            transform: translateX(-150%) skewX(-15deg);
-            /* Roda a animação a cada 3.5 segundos */
-            animation: shimmer-effect 3.5s infinite;
+      /* Hero Section - Fundo Escuro (Visual da Foto) */
+      .hero-bg {
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url('img/fotosalao_01.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      @media (max-width: 768px) {
+        .hero-bg {
+          height: auto;
+          min-height: 100vh;
+          padding-top: 120px;
+          padding-bottom: 60px;
         }
+      }
+      
+      .nav-link {
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -4px;
+        left: 0;
+        background-color: #FCD34D;
+        transition: width 0.3s ease-in-out;
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
     </style>
-</head>
+  </head>
+  <body class="bg-white text-gray-800">
+    
+    <!-- HEADER -->
+    <header class="absolute top-0 left-0 right-0 z-50 w-full pt-6 px-4 md:px-8 transition-all duration-300" id="mainHeader">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#" title="Página Inicial" class="flex-shrink-0 z-50">
+          <img
+            src="img/logo_espaco_dream_on.png"
+            alt="Logo Dream On"
+            class="h-16 md:h-20 w-auto object-contain brightness-0 invert" 
+          />
+        </a>
 
-<body class="bg-slate-900 text-slate-200 font-sans antialiased">
-
-    <!-- ===== SEÇÃO DO CABEÇALHO / NAVEGAÇÃO ===== -->
-    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Seu nome ou logo -->
-            <a href="#" class="flex items-baseline gap-2 group">
-                <span class="text-xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">Nicolas Villela</span>
-                <span class="text-base text-slate-300">Product Designer</span>
-            </a>
-
-            <!-- Links de navegação para Desktop -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="hover:text-blue-400 transition-colors">Início</a>
-                <a href="#projetos" class="hover:text-blue-400 transition-colors">Projetos</a>
-                <a href="#habilidades" class="hover:text-blue-400 transition-colors">Habilidades</a>
-                <a href="#sobre" class="hover:text-blue-400 transition-colors">Sobre Mim</a>
-                <a href="#contato" class="hover:text-blue-400 transition-colors">Contato</a>
-            </div>
-
-            <!-- Botão do Menu Mobile -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-slate-800 transition">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+        <!-- Navegação Desktop -->
+        <nav class="hidden md:flex flex-1 justify-center items-center space-x-8 text-white font-semibold tracking-wide">
+          <a href="#servicos" class="nav-link hover:text-white transition-colors">Serviços</a>
+          <a href="#galeria" class="nav-link hover:text-white transition-colors">Galeria</a>
+          <a href="#depoimentos" class="nav-link hover:text-white transition-colors">Depoimentos</a>
+          <a href="#faq" class="nav-link hover:text-white transition-colors">FAQ</a>
+          <a href="#contato" class="nav-link hover:text-white transition-colors">Contato</a>
+          <a href="#localizacao" class="nav-link hover:text-white transition-colors">Localização</a>
         </nav>
-        
-        <!-- Menu Mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-            <div class="px-6 py-4 space-y-3">
-                <a href="#home" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Início</a>
-                <a href="#projetos" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Projetos</a>
-                <a href="#habilidades" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Habilidades</a>
-                <a href="#sobre" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Sobre Mim</a>
-                <a href="#contato" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Contato</a>
-            </div>
+
+        <!-- Botão Agendar -->
+        <div class="hidden md:block flex-shrink-0">
+            <a 
+                href="#contato" 
+                class="border border-white/80 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-white hover:text-black transition-all duration-300 ease-out"
+            >
+                Agende seu Evento
+            </a>
         </div>
+
+        <!-- Botão Mobile -->
+        <button id="mobileMenuBtn" class="md:hidden text-white z-50 focus:outline-none p-2">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div id="mobileMenu" class="fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center space-y-8 text-white text-xl transform translate-x-full transition-transform duration-300 md:hidden">
+         <a href="#servicos" class="mobile-link hover:text-yellow-400 transition">Serviços</a>
+         <a href="#galeria" class="mobile-link hover:text-yellow-400 transition">Galeria</a>
+         <a href="#depoimentos" class="mobile-link hover:text-yellow-400 transition">Depoimentos</a>
+         <a href="#faq" class="mobile-link hover:text-yellow-400 transition">FAQ</a>
+         <a href="#contato" class="mobile-link hover:text-yellow-400 transition">Contato</a>
+         <a href="#localizacao" class="mobile-link hover:text-yellow-400 transition">Localização</a>
+      </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
-
-        <!-- ===== SEÇÃO PRINCIPAL (HERO) ===== -->
-        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-20">
-            <!-- Informações de texto -->
-            <div class="md:w-1/2 text-center md:text-left">
-                <span class="text-blue-400 font-semibold tracking-wide uppercase text-sm">Olá, eu sou</span>
-                <!-- EDITE SEU NOME AQUI -->
-                <h1 class="text-4xl md:text-6xl font-bold text-white mt-2 mb-4 leading-tight">Nicolas Villela</h1>
-                <!-- EDITE SUA PROFISSÃO AQUI -->
-                <h2 class="text-2xl text-slate-300 font-medium">Product Designer | UI/UX</h2>
-                <p class="mt-6 text-slate-400 max-w-lg mx-auto md:mx-0 text-lg leading-relaxed">
-                    <!-- EDITE SUA BIO CURTA AQUI -->
-                    Transformo ideias em realidade digital com código limpo e design intuitivo. Apaixonado por tecnologia e por criar experiências memoráveis para os usuários.
-                </p>
-                <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#contato" class="py-3 px-8 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold transition-all hover:-translate-y-1 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]">Entre em Contato</a>
-                    
-                    <!-- EDITE O 'href' ABAIXO COM O LINK PARA O SEU CURRÍCULO -->
-                    <a href="Img/CV Nicolas Silva.pdf.pdf" target="_blank" class="py-3 px-8 bg-slate-800 border border-slate-600 hover:bg-slate-700 hover:border-slate-500 rounded-lg text-white font-semibold transition-all hover:-translate-y-1">Currículo</a>
-                </div>
-            </div>
-
-            <!-- Sua Foto -->
-            <div class="md:w-1/3 w-2/3 relative group">
-                <!-- Efeito de brilho atrás da foto -->
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <!-- COLOQUE O LINK DA SUA FOTO AQUI no 'src' -->
-                <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="relative aspect-square rounded-full shadow-2xl w-full object-cover border-4 border-slate-800 z-10">
-            </div>
-        </section>
-
-        <!-- ===== SEÇÃO SOBRE MIM ===== -->
-        <section id="sobre" class="py-20 bg-slate-800/30 rounded-3xl my-10 px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-8">
-                Sobre Mim
-            </h2>
-            <div class="flex flex-col items-center justify-center">
-                <div class="max-w-3xl text-slate-300 space-y-6 text-center text-lg leading-relaxed">
-                     <!-- EDITE O TEXTO SOBRE VOCÊ AQUI -->
-                    <p>
-                        Sou Product Designer com uma missão clara: criar produtos digitais que não apenas atendam às necessidades do negócio, mas que também ofereçam experiências significativas e intuitivas para as pessoas. Acredito que a tecnologia deve ser uma ponte para facilitar o dia a dia, e meu trabalho é construir essas pontes com empatia e estratégia.
-                    </p>
-                    <p>
-                        Meu processo de design é colaborativo e centrado no usuário, envolvendo pesquisa, ideação, prototipagem e testes contínuos. Tenho experiência em transformar desafios complexos em soluções simples e elegantes, sempre com foco em usabilidade, acessibilidade e inovação. Busco constantemente aprender e aplicar novas metodologias para entregar produtos que gerem impacto real.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SEÇÃO DE PROJETOS ===== -->
-        <section id="projetos" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">
-                Meus Projetos
-            </h2>
-            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Conheça um pouco do meu trabalho recente.</p>
-            
-              <!-- Grid de projetos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-               <!-- PROJETO 1: Barbearia -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
-                    <!-- Imagem do Projeto -->
-                    <div class="overflow-hidden relative">
-                         <img src="Img/fotosistema.png" alt="Plataforma de Gestão e Agendamento para Barbearias" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+Barbearia';">
-                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                    </div>
-                    
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Sistema de Barbearia</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">Uma plataforma digital completa que moderniza a operação de barbearias. Oferece agendamento online intuitivo e um painel administrativo robusto.</p>
-                            <!-- Tecnologias Usadas -->
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">PHP</span>
-                                 <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
-                            <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
-                            <a href="detalhes-barbearia.html" 
-                               class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
-                                Ver Projeto
-                            </a>
-
-                            <!-- Botão Código Fonte -->
-                            <a href="https://github.com/nicolasanalyst/Controle-Barbearia.git" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROJETO 2: Website Dream On -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
-                    <div class="overflow-hidden relative">
-                        <img src="Img/imagemprojeto_salão.png" alt="Website Dream On" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+Dream+On';">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Website Dream On</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                Desenvolvi o site responsivo do <strong>Dream On Salão de Festas</strong>, um portal elegante que permite agendamento fácil e exploração de galerias.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
-                            <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
-                            <a href="projeto dream-on.html" 
-                               class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
-                                Ver Projeto
-                            </a>
-
-                            <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROJETO 3: Skate Vibe Pro (Atualizado) -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
-                    <div class="overflow-hidden relative">
-                        <img src="Img/Gemini_Generated_Image_86egab86egab86eg.png" alt="Skate Vibe Pro" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Skate+Vibe';">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Loja Online Streetwear</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                E-commerce web responsivo focado na cultura urbana, com catálogo dinâmico, carrinho de compras e fluxo completo de checkout.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
-                            <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
-                            <button
-                                onclick="document.getElementById('modal-breve').classList.remove('hidden')"
-                                class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
-                                Ver Projeto
-                            </button>
-
-                            <a href="https://github.com/nicolasanalyst" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ===== SEÇÃO: MINHAS HABILIDADES ===== -->
-        <section id="habilidades" class="py-20 bg-slate-900">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
-                        Minhas Habilidades
-                    </h2>
-                    <p class="text-xl text-blue-400 font-medium">
-                        Como eu faço acontecer
-                    </p>
-                </div>
-                
-                <!-- Grid de Habilidades -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
-                    
-                    <!-- Card 1: UX Design -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UX Design</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Transformo necessidades em experiências claras e funcionais.
-                        </p>
-                    </div>
-
-                    <!-- Card 2: UI Design -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UI Design</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Desenho interfaces bonitas, claras e fáceis de usar.
-                        </p>
-                    </div>
-
-                    <!-- Card 3: UX Research -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UX Research</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Investigo necessidades reais por meio de entrevistas e análises.
-                        </p>
-                    </div>
-
-                    <!-- Card 4: Prototipação -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Prototipação</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                             Crio protótipos rápidos para validar ideias na prática.
-                        </p>
-                    </div>
-
-                    <!-- Card 5: Testes de Usabilidade -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Testes de Usabilidade</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Testo soluções com usuários para descobrir o que melhorar.
-                        </p>
-                    </div>
-
-                    <!-- Card 6: Design System -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Design System</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Organizo padrões visuais para manter tudo consistente.
-                        </p>
-                    </div>
-
-                    <!-- Card 7: Desenvolvimento Web -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group md:col-span-2 lg:col-span-2">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Desenvolvimento Web Responsivo</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Implemento sites responsivos e funcionais com HTML, CSS e JavaScript.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-         <!-- ===== SEÇÃO DE CONTATO ===== -->
-        <section id="contato" class="py-20 md:py-32 text-center bg-gradient-to-b from-slate-900 to-slate-800">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
-                Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um oi, sinta-se à vontade para entrar em contato!
-            </p>
-            <!-- EDITE COM SEU E-MAIL -->
-            <a href="mailto:nicolas-villela@hotmail.com" class="inline-block text-lg py-4 px-10 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
-                Mande um E-mail
-            </a>
-
-            <div class="mt-16 flex justify-center gap-8">
-               
-              <!-- EDITE o link 'href' com seu perfil do GitHub -->
-                <a href="https://github.com/nicolasanalyst" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                    <span class="sr-only">GitHub</span>
-                </a>
-                 <!-- EDITE o link 'href' com seu perfil do LinkedIn -->
-                <a href="https://www.linkedin.com/in/villela-nicolas" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <span class="sr-only">LinkedIn</span>
-                </a>
-                <!-- EDITE o link 'href' com seu número do WhatsApp -->
-                <a href="https://wa.me/5519989132951" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 13.593 2.422 15.114 3.181 16.469L2 22L7.695 20.875C8.98 21.609 10.45 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM9.805 8.016C10.031 7.5 9.93 7.234 9.766 7.078C9.6 6.922 9.289 6.797 9.031 6.797C8.766 6.797 8.523 6.797 8.305 6.797C8.086 6.797 7.781 6.875 7.555 7.172C7.328 7.461 6.602 8.148 6.602 9.328C6.602 10.516 7.547 11.641 7.703 11.828C7.867 12.023 9.422 14.469 11.828 15.586C14.242 16.711 14.813 16.414 15.227 16.367C15.641 16.32 16.633 15.742 16.852 15.109C17.078 14.469 17.078 13.922 17.008 13.781C16.938 13.641 16.773 13.578 16.531 13.469C16.289 13.359 15.023 12.75 14.789 12.656C14.547 12.562 14.391 12.516 14.227 12.812C14.07 13.117 13.609 13.664 13.477 13.828C13.336 13.984 13.203 14.008 12.961 13.906C12.711 13.805 11.758 13.469 10.648 12.5C9.75 11.711 9.172 10.758 9.031 10.5C8.891 10.234 9.008 10.109 9.125 9.992C9.234 9.875 9.383 9.703 9.523 9.547C9.672 9.391 9.719 9.289 9.805 9.109C9.898 8.922 9.852 8.758 9.781 8.641C9.711 8.523 9.242 7.375 9.031 6.875L9.805 8.016Z" /></svg>
-                    <span class="sr-only">WhatsApp</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===== RODAPÉ ===== -->
-    <footer class="bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-6 py-8 text-center text-slate-500 text-sm">
-            <p>&copy; 2026 <a href="#" class="font-semibold text-slate-400 hover:text-blue-400">Nicolas Villela</a>. Todos os direitos reservados.</p>
+    <!-- HERO SECTION -->
+    <section class="hero-bg text-white text-center px-4">
+      <div class="max-w-6xl mx-auto flex flex-col items-center animate-fade-in-up pt-10">
+        
+        <span class="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-6 text-gray-300">
+          Eventos Inesquecíveis desde 2019
+        </span>
+        
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-playfair font-extrabold leading-tight mb-6 tracking-tight">
+          Dream On <span class="text-yellow-400">Salão de Festas</span>
+        </h1>
+        
+        <p class="text-base md:text-lg text-gray-300 max-w-2xl mb-12 leading-relaxed">
+          O espaço perfeito para transformar seus sonhos em realidade.
+          <br class="hidden md:block" />
+          Elegância, sofisticação e momentos inesquecíveis.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
+          <a
+            href="#contato"
+            class="bg-yellow-400 text-gray-900 font-bold py-3.5 px-8 rounded-full text-base hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg min-w-[200px]"
+          >
+            Agende seu Evento
+          </a>
+          <a
+            href="#servicos"
+            class="bg-gray-700/50 backdrop-blur-sm text-white font-bold py-3.5 px-8 rounded-full text-base hover:bg-gray-600/50 transition-all min-w-[200px]"
+          >
+            Conhecer Serviços
+          </a>
         </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Nossos <span class="text-yellow-500 font-inter">Serviços</span>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+          Oferecemos o espaço perfeito para cada tipo de celebração, sempre com
+          excelência e atenção aos detalhes.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-pink-100 text-pink-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="heart" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Casamentos</h3>
+            <p class="text-gray-600">Celebre o amor em um ambiente elegante e romântico, perfeito para o dia mais especial.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-purple-100 text-purple-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="cake" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Aniversários</h3>
+            <p class="text-gray-600">Comemore a vida com estilo! Do primeiro aninho aos 100 anos, temos o espaço ideal.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-yellow-100 text-yellow-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="star" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Debutantes</h3>
+            <p class="text-gray-600">Realize a festa de 15 anos dos sonhos em um salão sofisticado e deslumbrante.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-blue-100 text-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="briefcase" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Eventos Corporativos</h3>
+            <p class="text-gray-600">Reuniões e palestras em um ambiente profissional que inspira sucesso.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-green-100 text-green-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="users" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Eventos Sociais</h3>
+            <p class="text-gray-600">Confraternizações e celebrações diversas com a estrutura que seu evento merece.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2">
+            <div class="bg-red-100 text-red-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Formaturas</h3>
+            <p class="text-gray-600">Celebre sua conquista em grande estilo com uma festa de formatura inesquecível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Nosso <span class="text-yellow-500 font-inter">Espaço</span>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+          Conheça nosso salão elegante e versátil. Clique nas imagens para ampliar.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="grid gap-4">
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotodefundo01.jpeg" alt="Visão ampla do salão de festas Dream On com mesas redondas" /></div>
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotosalao_03.jpg" alt="Decoração de casamento no salão com mesa do bolo e cadeiras" /></div>
+          </div>
+          <div class="grid gap-4">
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotosalao_04.jpg" alt="Decoração de festa de debutante com tema rosa e balões" /></div>
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/foto01.jpeg" alt="Mesa de bolo de aniversário ricamente decorada" /></div>
+          </div>
+          <div class="grid gap-4">
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/foto05.jpeg" alt="Salão decorado para evento social com iluminação ambiente" /></div>
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotosalao_06.jpg" alt="Outro ângulo da festa de debutante com painel 'Sweet 16'" /></div>
+          </div>
+          <div class="grid gap-4">
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotosalao_05.jpg" alt="Detalhe da decoração de mesa com arranjo de flores" /></div>
+            <div><img class="gallery-img h-auto max-w-full rounded-lg shadow-md md:hover:scale-105 transition-transform cursor-pointer" src="img/fotosalao_02.jpg" alt="Vista do salão com mesas preparadas para os convidados" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          O que nossos <span class="text-yellow-500 font-inter">Clientes Dizem</span>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+          A satisfação de quem confia em nosso espaço é a nossa maior recompensa.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-lg text-left transform hover:scale-105 transition-transform">
+            <div class="flex text-yellow-400 mb-4">
+              <i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i>
+            </div>
+            <blockquote class="text-gray-600 italic">"O casamento foi perfeito! O salão é lindo, espaçoso e a equipe nos deu todo o suporte. Nossos convidados ficaram encantados com cada detalhe. Recomendo de olhos fechados!"</blockquote>
+            <p class="mt-4 font-bold text-gray-800">Mariana e Lucas</p>
+            <p class="text-sm text-gray-500">Casamento</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg text-left transform hover:scale-105 transition-transform">
+            <div class="flex text-yellow-400 mb-4">
+              <i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i>
+            </div>
+            <blockquote class="text-gray-600 italic">"Fizemos a festa de 15 anos da minha filha e foi um sonho! O espaço é versátil e permitiu criar a decoração que ela sempre quis. A estrutura é impecável, superou nossas expectativas."</blockquote>
+            <p class="mt-4 font-bold text-gray-800">Família Oliveira</p>
+            <p class="text-sm text-gray-500">Festa de Debutante</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg text-left transform hover:scale-105 transition-transform">
+            <div class="flex text-yellow-400 mb-4">
+              <i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i data-lucide="star" class="fill-current"></i>
+            </div>
+            <blockquote class="text-gray-600 italic">"Utilizamos o espaço para um evento corporativo e ficamos muito satisfeitos. Ambiente climatizado, ótima estrutura de som e imagem. Nossos colaboradores elogiaram a escolha."</blockquote>
+            <p class="mt-4 font-bold text-gray-800">Ricardo Almeida</p>
+            <p class="text-sm text-gray-500">Evento Corporativo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Perguntas <span class="text-yellow-500 font-inter">Frequentes</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+            Tire suas dúvidas mais comuns sobre nosso espaço e serviços.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="faq-question flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50">
+              <h3 class="font-semibold text-lg text-gray-800">Qual a capacidade e a duração da festa?</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon lucide lucide-plus transition-transform duration-300"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+            </div>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-[600ms] ease-in-out bg-white text-gray-700">
+              <div class="px-6 pb-6">
+                <p>Nosso salão tem capacidade para até 120 pessoas confortavelmente. O período padrão de locação é de 5 horas de festa.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="faq-question flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50">
+              <h3 class="font-semibold text-lg text-gray-800">O que está incluso na locação do espaço?</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon lucide lucide-plus transition-transform duration-300"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+            </div>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-[600ms] ease-in-out bg-white text-gray-700">
+              <div class="px-6 pb-6">
+                <p>A locação inclui toda a estrutura para sua festa: 15 mesas, 120 cadeiras, uma mesa grande para o buffet (3,50m x 1,00m), projetor com telão, climatizador, Wi-Fi e a utilização da nossa cozinha completa.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="faq-question flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50">
+              <h3 class="font-semibold text-lg text-gray-800">Como é a estrutura da cozinha?</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon lucide lucide-plus transition-transform duration-300"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+            </div>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-[600ms] ease-in-out bg-white text-gray-700">
+              <div class="px-6 pb-6">
+                <p>Oferecemos uma cozinha industrial equipada com forno, fogão com coifa e exaustor, geladeira, gás encanado, churrasqueira e uma tomada específica que suporta até duas fritadeiras elétricas simultaneamente.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="faq-question flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50">
+              <h3 class="font-semibold text-lg text-gray-800">O salão é acessível para cadeirantes?</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon lucide lucide-plus transition-transform duration-300"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+            </div>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-[600ms] ease-in-out bg-white text-gray-700">
+              <div class="px-6 pb-6">
+                <p>Sim! Nosso espaço foi projetado para ser acolhedor para todos, com fácil acesso para cadeirantes tanto na entrada principal quanto nos banheiros.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="faq-question flex justify-between items-center p-6 cursor-pointer hover:bg-gray-50">
+              <h3 class="font-semibold text-lg text-gray-800">O espaço é climatizado e seguro?</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon lucide lucide-plus transition-transform duration-300"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+            </div>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-[600ms] ease-in-out bg-white text-gray-700">
+              <div class="px-6 pb-6">
+                <p>Com certeza. O salão é totalmente climatizado para o conforto dos seus convidados e possuímos o AVCB (Auto de Vistoria do Corpo de Bombeiros), garantindo que todas as normas de segurança são seguidas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Agende seu <span class="text-yellow-500 font-inter">Evento</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+            Preencha o formulário e entraremos em contato via WhatsApp para confirmar sua data.
+          </p>
+        </div>
+        <div class="max-w-2xl mx-auto bg-white p-8 sm:p-12 rounded-2xl shadow-2xl">
+          <form id="agendamentoForm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                <input type="text" id="nome" name="nome" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" />
+              </div>
+              <div>
+                <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">Telefone *</label>
+                <input type="tel" id="telefone" name="telefone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" placeholder="(19) 99999-9999" />
+              </div>
+            </div>
+            <div class="mt-6">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" placeholder="seu@email.com" />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <label for="tipoEvento" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Evento *</label>
+                <select id="tipoEvento" name="tipoEvento" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500">
+                  <option>Casamento</option>
+                  <option>Aniversário</option>
+                  <option>Debutante</option>
+                  <option>Evento Social</option>
+                  <option>Evento Corporativo</option>
+                  <option>Formatura</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div>
+                <label for="data" class="block text-sm font-medium text-gray-700 mb-1">Data Desejada *</label>
+                <input type="date" id="data" name="data" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" />
+              </div>
+            </div>
+            <div class="mt-6">
+              <label for="convidados" class="block text-sm font-medium text-gray-700 mb-1">Número de Convidados</label>
+              <input type="number" id="convidados" name="convidados" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" placeholder="Ex: 100" />
+            </div>
+            <div class="mt-6">
+              <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-1">Mensagem Adicional</label>
+              <textarea id="mensagem" name="mensagem" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500" placeholder="Conte-nos mais sobre seu evento..."></textarea>
+            </div>
+            <div class="mt-8 text-center">
+              <button type="submit" id="submitButton" class="bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 w-full sm:w-auto">Solicitar Agendamento</button>
+            </div>
+          </form>
+          <div id="successMessage" class="hidden mt-6 text-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative">
+            <strong class="font-bold">Obrigado!</strong>
+            <span class="block sm:inline">Sua mensagem foi preparada. Você será redirecionado para o WhatsApp.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao" class="pt-20 pb-10 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Nossa <span class="text-yellow-500 font-inter">Localização</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+            Estamos em uma localização privilegiada em Araras, de fácil acesso para você e seus convidados.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="h-96 lg:h-full rounded-2xl overflow-hidden shadow-2xl">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.0183187127623!2d-47.36740172470291!3d-22.336691979667793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8776347ba1c6f%3A0x5a6c069c286628d6!2sEspa%C3%A7o%20Dream%20On%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1728685419401!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-4">
+              <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full"><i data-lucide="map-pin"></i></div>
+              <div><h3 class="font-bold text-lg">Endereço</h3><p class="text-gray-600">Av. Henrique Volpe, 47<br />Jardim Campos Verdes, Araras - SP<br />CEP: 13604-536</p></div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-4">
+              <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full"><i data-lucide="phone"></i></div>
+              <div><h3 class="font-bold text-lg">Telefone</h3><p class="text-gray-600">(19) 99333-9597</p></div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-4">
+              <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full"><i data-lucide="mail"></i></div>
+              <div><h3 class="font-bold text-lg">Email</h3><p class="text-gray-600 break-all">studioandersonfilmagem@hotmail.com</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[rgb(29,29,29)] text-white py-12">
+      <div class="container mx-auto px-4 text-center">
+        <img src="img/logo_espaco_dream_on.png" alt="Logo Dream On" class="h-24 mx-auto mb-4" />
+        <p class="max-w-xl mx-auto text-gray-400 mb-6">Transformando seus sonhos em realidade com elegância e sofisticação.</p>
+        <div class="flex justify-center items-center gap-6 mb-8">
+          <a href="https://wa.me/5519993339597" target="_blank" class="text-gray-400 hover:text-yellow-300 transition-colors" title="WhatsApp">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/espacodreamon/" target="_blank" class="text-gray-400 hover:text-yellow-300 transition-colors" title="Instagram">
+            <i data-lucide="instagram" class="w-7 h-7"></i>
+          </a>
+          <a href="https://www.facebook.com/espacodreamon?rdid=g6e9vHlyzPXzM2P4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19bBMPJjiF%2F#" target="_blank" class="text-gray-400 hover:text-yellow-300 transition-colors" title="Facebook">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 512 512" aria-hidden="true"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">© <span id="currentYear"></span> Dream On Salão de Festas. Todos os direitos reservados.</p>
+      </div>
     </footer>
 
-    <!-- MODAL: Em Breve -->
-    <div id="modal-breve" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity">
-        <div class="bg-slate-800 rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl border border-slate-700 transform transition-all scale-100">
-            <div class="w-16 h-16 bg-blue-600/20 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Projeto em Andamento</h4>
-            <p class="text-slate-400 mb-6 text-sm leading-relaxed">
-                Este projeto está sendo lapidado. Em breve você poderá visualizar a demonstração completa com todos os recursos.
-            </p>
-            <button
-                onclick="document.getElementById('modal-breve').classList.add('hidden')"
-                class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-xl font-semibold transition shadow-lg shadow-blue-500/30">
-                Entendi, fechar
-            </button>
-        </div>
+    <!-- MODAL GALERIA -->
+    <div
+      id="galleryModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center p-4"
+    >
+      <div class="relative w-full max-w-4xl">
+        <!-- BOTÃO FECHAR MINIMALISTA (SÓ O ÍCONE) -->
+        <button
+          id="closeModal"
+          class="fixed top-4 right-4 z-[10001] text-white hover:text-yellow-400 transition-colors p-2"
+        >
+          <i data-lucide="x" class="w-10 h-10 drop-shadow-lg"></i>
+        </button>
+        <img
+          id="modalImage"
+          src=""
+          alt="Imagem da galeria ampliada"
+          class="max-w-[90vw] max-h-[90vh] rounded-lg object-contain"
+        />
+      </div>
     </div>
 
-    <!-- Link para o seu arquivo JavaScript -->
-    <script src="script.js"></script>
-</body>
+    <script>
+      // Icons Initialization
+      lucide.createIcons();
+
+      // Set Current Year
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Mobile Menu Logic
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      let isMenuOpen = false;
+
+      mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if(isMenuOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+            mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+            lucide.createIcons();
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+            mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+            lucide.createIcons();
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            isMenuOpen = false;
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+            mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+            lucide.createIcons();
+        });
+      });
+
+      // Gallery Modal Logic
+      const galleryModal = document.getElementById('galleryModal');
+      const modalImage = document.getElementById('modalImage');
+      const galleryImages = document.querySelectorAll('.gallery-img');
+      const closeModal = document.getElementById('closeModal');
+
+      galleryImages.forEach(img => {
+        img.addEventListener('click', function() {
+          modalImage.src = this.src; 
+          galleryModal.classList.remove('hidden');
+        });
+      });
+
+      closeModal.addEventListener('click', () => {
+        galleryModal.classList.add('hidden');
+      });
+
+      galleryModal.addEventListener('click', (e) => {
+        if (e.target === galleryModal) {
+            galleryModal.classList.add('hidden');
+        }
+      });
+
+      // FAQ Logic
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('.faq-icon');
+            
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.style.transform = 'rotate(45deg)';
+            }
+        });
+      });
+
+      // Navbar Scroll Effect
+      const header = document.getElementById('mainHeader');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('bg-black/80', 'backdrop-blur-md', 'shadow-md');
+            header.classList.remove('pt-6', 'px-4', 'md:px-8');
+            header.classList.add('py-2', 'px-6');
+        } else {
+            header.classList.remove('bg-black/80', 'backdrop-blur-md', 'shadow-md', 'py-2', 'px-6');
+            header.classList.add('pt-6', 'px-4', 'md:px-8');
+        }
+      });
+
+      // WhatsApp Form Handler
+      const form = document.getElementById('agendamentoForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nome = document.getElementById('nome').value;
+        const tipoEvento = document.getElementById('tipoEvento').value;
+        const data = document.getElementById('data').value;
+        const convidados = document.getElementById('convidados').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const text = `*Olá! Gostaria de fazer um orçamento no Espaço Dream On.*%0A%0A*Nome:* ${nome}%0A*Evento:* ${tipoEvento}%0A*Data:* ${data}%0A*Convidados:* ${convidados || 'Não informado'}%0A*Mensagem:* ${mensagem || 'Sem mensagem adicional'}`;
+        const phone = '5519993339597';
+        window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+      });
+    </script>
+  </body>
 </html>
