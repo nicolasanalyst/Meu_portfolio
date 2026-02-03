@@ -60,6 +60,28 @@
             /* Roda a animação a cada 3.5 segundos */
             animation: shimmer-effect 3.5s infinite;
         }
+
+        /* --- NOVAS ANIMAÇÕES PARA OS ÍCONES FLUTUANTES --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 4.5s ease-in-out infinite 1.5s; /* Começa com atraso para não ficarem sincronizados */
+        }
+
+        /* Estilo Efeito Vidro (Glassmorphism) para os ícones */
+        .glass-icon {
+            background: rgba(30, 41, 59, 0.4); /* Fundo escuro semitransparente */
+            backdrop-filter: blur(8px); /* Desfoque do fundo */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra suave */
+        }
     </style>
 </head>
 
@@ -106,9 +128,9 @@
     <main class="container mx-auto px-6 py-12 md:py-20">
 
         <!-- ===== SEÇÃO PRINCIPAL (HERO) ===== -->
-        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-20">
+        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-20 relative">
             <!-- Informações de texto -->
-            <div class="md:w-1/2 text-center md:text-left">
+            <div class="md:w-1/2 text-center md:text-left z-10">
                 <span class="text-blue-400 font-semibold tracking-wide uppercase text-sm">Olá, eu sou</span>
                 <!-- EDITE SEU NOME AQUI -->
                 <h1 class="text-4xl md:text-6xl font-bold text-white mt-2 mb-4 leading-tight">Nicolas Villela</h1>
@@ -126,12 +148,41 @@
                 </div>
             </div>
 
-            <!-- Sua Foto -->
-            <div class="md:w-1/3 w-2/3 relative group">
-                <!-- Efeito de brilho atrás da foto -->
+            <!-- Sua Foto e Ícones Flutuantes -->
+            <div class="md:w-1/3 w-2/3 relative group flex justify-center items-center">
+                
+                <!-- ÍCONE 1 (CODE/DEV) - Flutuando à esquerda em baixo -->
+                <div class="absolute -bottom-6 -left-4 md:-bottom-2 md:-left-12 z-20 animate-float">
+                    <div class="glass-icon p-3 rounded-2xl">
+                        <!-- Ícone laranja com gradiente -->
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Efeito de brilho atrás da foto (Mantido como solicitado) -->
                 <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                
                 <!-- COLOQUE O LINK DA SUA FOTO AQUI no 'src' -->
                 <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="relative aspect-square rounded-full shadow-2xl w-full object-cover border-4 border-slate-800 z-10">
+
+                <!-- ÍCONE 2 (FIGMA) - Flutuando à direita em cima -->
+                <div class="absolute -top-4 -right-4 md:top-6 md:-right-10 z-20 animate-float-delayed">
+                    <!-- Container ajustado para o estilo da imagem: Fundo escuro, vidro e ícone grande -->
+                    <div class="glass-icon p-4 rounded-2xl bg-[#1e1e1e]/90 border border-white/5 shadow-2xl backdrop-blur-xl">
+                         <svg class="h-10 w-auto" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
+                            <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98043 38 9.5 38H19V57C16.4804 57 14.0641 55.9991 12.2825 54.2175C10.5009 52.4359 9.5 50.0196 9.5 47.5L0 47.5Z" fill="#0ACF83"/>
+                            <path d="M19 0V19H9.5C6.98043 19 4.56408 17.9991 2.78249 16.2175C1.00089 14.4359 0 12.0196 0 9.5C0 6.98043 1.00089 4.56408 2.78249 2.78249C4.56408 1.00089 6.98043 0 9.5 0H19Z" fill="#F24E1E"/>
+                            <path d="M0 28.5C0 25.9804 1.00089 23.5641 2.78249 21.7825C4.56408 20.0009 6.98043 19 9.5 19H19V38H9.5C6.98043 38 4.56408 36.9991 2.78249 35.2175C1.00089 33.4359 0 31.0196 0 28.5Z" fill="#A259FF"/>
+                            <path d="M38 9.5C38 14.7467 33.7467 19 28.5 19H19V0H28.5C33.7467 0 38 4.25329 38 9.5Z" fill="#FF7262"/>
+                        </svg>
+                    </div>
+                </div>
+
             </div>
         </section>
 
