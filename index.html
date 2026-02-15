@@ -156,15 +156,16 @@
 
     <main class="container mx-auto px-6 overflow-x-hidden">
 
-        <!-- ===== SEÇÃO PRINCIPAL (HERO) - VISUAL REFINADO ===== -->
-        <!-- Adicionado min-h-screen para garantir que ocupe a tela em monitores grandes, dando "ar" -->
-        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-16 md:gap-24 py-20 md:py-32 relative overflow-hidden">
+        <!-- ===== SEÇÃO PRINCIPAL (HERO) - CORRIGIDA PARA IPAD ===== -->
+        <!-- ALTERAÇÃO AQUI: Mudado de md:flex-row para lg:flex-row e md:gap-24 para lg:gap-24 -->
+        <section id="home" class="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-24 py-20 lg:py-32 relative overflow-hidden">
             
             <!-- Elemento decorativo de fundo (Glow suave) -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
             <!-- Informações de texto -->
-            <div class="md:w-1/2 text-center md:text-left z-10 flex flex-col items-center md:items-start">
+            <!-- ALTERAÇÃO AQUI: Mudado de md:w-1/2 para lg:w-1/2 e md:text-left para lg:text-left -->
+            <div class="lg:w-1/2 text-center lg:text-left z-10 flex flex-col items-center lg:items-start">
                 
                 <!-- "Olá, eu sou" com cor e contraste ajustados -->
                 <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-2">Olá, eu sou</span>
@@ -185,7 +186,8 @@
                 </p>
 
                 <!-- Botões com Hierarquia Clara -->
-                <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4 w-full sm:w-auto">
+                <!-- ALTERAÇÃO AQUI: Mudado de md:justify-start para lg:justify-start -->
+                <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
                     <!-- Botão Primário: Glow colorido sutil -->
                     <a href="#projetos" class="btn-shine py-3.5 px-8 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-semibold transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
                         Ver Projetos
@@ -200,7 +202,8 @@
             </div>
 
             <!-- Sua Foto e Ícones Flutuantes -->
-            <div class="md:w-1/2 w-full relative flex justify-center items-center py-10 md:py-0">
+            <!-- ALTERAÇÃO AQUI: Mudado de md:w-1/2 para lg:w-1/2 e md:py-0 para lg:py-0 -->
+            <div class="lg:w-1/2 w-full relative flex justify-center items-center py-10 lg:py-0">
                 
                 <!-- Círculos decorativos de fundo (efeito radar/profundidade) -->
                 <div class="absolute inset-0 flex items-center justify-center z-0">
@@ -238,8 +241,8 @@
                     <!-- ÍCONE 2 (FIGMA) - Direita Superior -->
                     <div class="absolute -top-6 -right-2 md:top-4 md:-right-12 z-30 animate-float-delayed">
                          <div class="glass-icon p-4 rounded-2xl bg-[#1e1e1e]/80 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center gap-3">
-                              <!-- Ícone Figma -->
-                              <svg class="h-8 w-auto drop-shadow-lg" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <!-- Ícone Figma -->
+                             <svg class="h-8 w-auto drop-shadow-lg" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
                                 <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98043 38 9.5 38H19V57C16.4804 57 14.0641 55.9991 12.2825 54.2175C10.5009 52.4359 9.5 50.0196 9.5 47.5L0 47.5Z" fill="#0ACF83"/>
                                 <path d="M19 0V19H9.5C6.98043 19 4.56408 17.9991 2.78249 16.2175C1.00089 14.4359 0 12.0196 0 9.5C0 6.98043 1.00089 4.56408 2.78249 2.78249C4.56408 1.00089 6.98043 0 9.5 0H19Z" fill="#F24E1E"/>
