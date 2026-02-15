@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Villela | Portfólio</title>
+    <title>Nicolas Villela | Product Designer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & Plus Jakarta Sans (Mais moderna para títulos) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <!-- Favicon (Emoji) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%233b82f6%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-size=%2250%22 dy=%22.1em%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>NV</text></svg>">
     
-    <!-- Link para o seu arquivo CSS -->
     <link rel="stylesheet" href="style.css">
 
     <script>
-        // Configuração do tema escuro padrão para o Tailwind
         tailwind.config = {
-            darkMode: 'class', // Ativa o modo escuro manual ou baseado na classe
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'], // Fonte mais "tech" para títulos
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'conic-gradient(from 90deg at 50% 50%, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
                     },
                     animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 },
             },
@@ -34,17 +37,26 @@
     </script>
 
     <style>
-        /* Animação de Brilho (Shine) Personalizada */
+        /* Fundo com textura sutil (Noise) para dar aspecto de "Material" */
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                              radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Melhoria na animação de brilho do botão */
         @keyframes shimmer-effect {
             0% { transform: translateX(-150%) skewX(-15deg); }
-            30% { transform: translateX(150%) skewX(-15deg); }
+            50% { transform: translateX(150%) skewX(-15deg); }
             100% { transform: translateX(150%) skewX(-15deg); }
         }
 
         .btn-shine {
             position: relative;
             overflow: hidden;
-            /* Garante que o brilho não saia do botão */
+            z-index: 1;
         }
 
         .btn-shine::after {
@@ -54,159 +66,220 @@
             left: 0;
             width: 50%;
             height: 100%;
-            /* Gradiente branco transparente para simular luz */
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
             transform: translateX(-150%) skewX(-15deg);
-            /* Roda a animação a cada 3.5 segundos */
-            animation: shimmer-effect 3.5s infinite;
+            animation: shimmer-effect 4s infinite;
+            z-index: -1;
         }
 
-        /* --- NOVAS ANIMAÇÕES PARA OS ÍCONES FLUTUANTES --- */
+        /* Animação Float mais suave */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
         .animate-float {
-            animation: float 4s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         .animate-float-delayed {
-            animation: float 4.5s ease-in-out infinite 1.5s; /* Começa com atraso para não ficarem sincronizados */
+            animation: float 7s ease-in-out infinite 2s;
         }
 
-        /* Estilo Efeito Vidro (Glassmorphism) para os ícones */
+        /* Glassmorphism Premium (Estilo Apple/Linear) */
         .glass-icon {
-            background: rgba(30, 41, 59, 0.4); /* Fundo escuro semitransparente */
-            backdrop-filter: blur(8px); /* Desfoque do fundo */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra suave */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Glassmorphism para o Header */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradiente de texto para o nome */
+        .text-gradient {
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 
-<body class="bg-slate-900 text-slate-200 font-sans antialiased">
+<body class="text-slate-300 font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200 overflow-x-hidden">
 
     <!-- ===== SEÇÃO DO CABEÇALHO / NAVEGAÇÃO ===== -->
-    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Seu nome ou logo -->
-            <a href="#" class="flex items-baseline gap-2 group">
-                <span class="text-xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">Nicolas Villela</span>
-                <span class="text-base text-slate-300">Product Designer</span>
+    <header class="glass-header sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+            <!-- Logo minimalista -->
+            <a href="#" class="flex items-center gap-2 group z-50">
+                <span class="text-lg font-display font-bold text-blue-400 tracking-tight group-hover:text-blue-300 transition-colors">
+                    Nicolas Villela 
+                    <span class="font-light text-slate-400 text-base ml-1">Product Designer</span>
+                </span>
             </a>
 
-            <!-- Links de navegação para Desktop -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="hover:text-blue-400 transition-colors">Início</a>
-                <a href="#projetos" class="hover:text-blue-400 transition-colors">Projetos</a>
-                <a href="#habilidades" class="hover:text-blue-400 transition-colors">Habilidades</a>
-                <a href="#sobre" class="hover:text-blue-400 transition-colors">Sobre Mim</a>
-                <a href="#contato" class="hover:text-blue-400 transition-colors">Contato</a>
+            <!-- Links de navegação para Desktop (Visual mais limpo) -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-white hover:text-blue-400 transition-colors">Início</a>
+                <a href="#projetos" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Projetos</a>
+                <a href="#habilidades" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Habilidades</a>
+                <a href="#sobre" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Sobre</a>
+                <a href="#contato" class="px-4 py-2 text-sm font-semibold text-white bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">Contato</a>
             </div>
 
-            <!-- Botão do Menu Mobile -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-slate-800 transition">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Botão do Menu Mobile (Z-index alto para ficar clicável) -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2 transition z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </nav>
-        
-        <!-- Menu Mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-            <div class="px-6 py-4 space-y-3">
-                <a href="#home" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Início</a>
-                <a href="#projetos" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Projetos</a>
-                <a href="#habilidades" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Habilidades</a>
-                <a href="#sobre" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Sobre Mim</a>
-                <a href="#contato" class="block hover:text-blue-400 transition-colors p-2 rounded hover:bg-slate-700">Contato</a>
+
+            <!-- Menu Mobile Corrigido -->
+            <!-- top-full posiciona logo abaixo do header, left-0 e w-full garantem largura total -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl transition-all duration-300">
+                <div class="px-6 py-6 space-y-4 flex flex-col">
+                    <a href="#home" class="block text-white font-medium hover:text-blue-400 py-2 border-b border-slate-800/50">Início</a>
+                    <a href="#projetos" class="block text-slate-400 hover:text-white transition-colors py-2 border-b border-slate-800/50">Projetos</a>
+                    <a href="#habilidades" class="block text-slate-400 hover:text-white transition-colors py-2 border-b border-slate-800/50">Habilidades</a>
+                    <a href="#sobre" class="block text-slate-400 hover:text-white transition-colors py-2 border-b border-slate-800/50">Sobre Mim</a>
+                    <a href="#contato" class="block text-blue-400 font-medium py-2">Contato</a>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
+    <main class="container mx-auto px-6 overflow-x-hidden">
 
-        <!-- ===== SEÇÃO PRINCIPAL (HERO) ===== -->
-        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-20 relative">
+        <!-- ===== SEÇÃO PRINCIPAL (HERO) - VISUAL REFINADO ===== -->
+        <!-- Adicionado min-h-screen para garantir que ocupe a tela em monitores grandes, dando "ar" -->
+        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between gap-16 md:gap-24 py-20 md:py-32 relative overflow-hidden">
+            
+            <!-- Elemento decorativo de fundo (Glow suave) -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
             <!-- Informações de texto -->
-            <div class="md:w-1/2 text-center md:text-left z-10">
-                <span class="text-blue-400 font-semibold tracking-wide uppercase text-sm">Olá, eu sou</span>
-                <!-- EDITE SEU NOME AQUI -->
-                <h1 class="text-4xl md:text-6xl font-bold text-white mt-2 mb-4 leading-tight">Nicolas Villela</h1>
-                <!-- EDITE SUA PROFISSÃO AQUI -->
-                <h2 class="text-2xl text-slate-300 font-medium">Product Designer | UI/UX</h2>
-                <p class="mt-6 text-slate-400 max-w-lg mx-auto md:mx-0 text-lg leading-relaxed">
-                    <!-- EDITE SUA BIO CURTA AQUI -->
-                    Transformo ideias em realidade digital com código limpo e design intuitivo. Apaixonado por tecnologia e por criar experiências memoráveis para os usuários.
+            <div class="md:w-1/2 text-center md:text-left z-10 flex flex-col items-center md:items-start">
+                
+                <!-- "Olá, eu sou" com cor e contraste ajustados -->
+                <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-2">Olá, eu sou</span>
+
+                <!-- Título com gradiente e fonte Display -->
+                <h1 class="text-5xl md:text-7xl font-display font-bold mb-4 leading-[1.1] tracking-tight">
+                    <span class="text-gradient">Nicolas Villela</span>
+                </h1>
+
+                <!-- Subtítulo refinado -->
+                <h2 class="text-xl md:text-2xl text-slate-400 font-light mb-6 flex items-center gap-3">
+                    Product Designer <span class="w-1 h-1 bg-slate-600 rounded-full"></span> UI/UX
+                </h2>
+                
+                <!-- Descrição com melhor legibilidade (leading-relaxed) -->
+                <p class="text-slate-400 text-lg leading-relaxed max-w-lg mx-auto md:mx-0 font-light">
+                    Transformo complexidade em <span class="text-slate-200 font-medium">experiências digitais intuitivas</span>. Unindo a lógica do código com a sensibilidade do design para criar produtos que as pessoas amam usar.
                 </p>
-                <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#contato" class="py-3 px-8 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold transition-all hover:-translate-y-1 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]">Entre em Contato</a>
+
+                <!-- Botões com Hierarquia Clara -->
+                <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4 w-full sm:w-auto">
+                    <!-- Botão Primário: Glow colorido sutil -->
+                    <a href="#projetos" class="btn-shine py-3.5 px-8 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-semibold transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
+                        Ver Projetos
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
                     
-                    <!-- EDITE O 'href' ABAIXO COM O LINK PARA O SEU CURRÍCULO -->
-                    <a href="Img/CV Nicolas Silva.pdf.pdf" target="_blank" class="py-3 px-8 bg-slate-800 border border-slate-600 hover:bg-slate-700 hover:border-slate-500 rounded-lg text-white font-semibold transition-all hover:-translate-y-1">Currículo</a>
+                    <!-- Botão Secundário: Estilo "Ghost" refinado -->
+                    <a href="Img/CV Nicolas Silva.pdf.pdf" target="_blank" class="py-3.5 px-8 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-xl text-slate-200 font-medium transition-all hover:-translate-y-1 backdrop-blur-md flex items-center justify-center">
+                        Currículo
+                    </a>
                 </div>
             </div>
 
             <!-- Sua Foto e Ícones Flutuantes -->
-            <div class="md:w-1/3 w-2/3 relative group flex justify-center items-center">
+            <div class="md:w-1/2 w-full relative flex justify-center items-center py-10 md:py-0">
                 
-                <!-- ÍCONE 1 (CODE/DEV) - Flutuando à esquerda em baixo -->
-                <div class="absolute -bottom-6 -left-4 md:-bottom-2 md:-left-12 z-20 animate-float">
-                    <div class="glass-icon p-3 rounded-2xl">
-                        <!-- Ícone laranja com gradiente -->
-                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
+                <!-- Círculos decorativos de fundo (efeito radar/profundidade) -->
+                <div class="absolute inset-0 flex items-center justify-center z-0">
+                    <div class="w-[300px] h-[300px] border border-white/5 rounded-full animate-pulse-slow"></div>
+                    <div class="w-[450px] h-[450px] border border-white/5 rounded-full absolute"></div>
+                </div>
+
+                <!-- Container Relativo para os elementos -->
+                <div class="relative z-10 w-64 h-64 md:w-96 md:h-96">
+                    
+                    <!-- ÍCONE 1 (CODE) - Esquerda Inferior -->
+                    <div class="absolute -bottom-4 -left-4 md:bottom-10 md:-left-8 z-30 animate-float">
+                        <div class="glass-icon p-4 rounded-2xl flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                            <div class="hidden md:block">
+                                <p class="text-xs text-slate-400 font-medium">Skills</p>
+                                <p class="text-sm text-white font-bold">Front-end</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Efeito de brilho atrás da foto (Mantido como solicitado) -->
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                
-                <!-- COLOQUE O LINK DA SUA FOTO AQUI no 'src' -->
-                <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="relative aspect-square rounded-full shadow-2xl w-full object-cover border-4 border-slate-800 z-10">
-
-                <!-- ÍCONE 2 (FIGMA) - Flutuando à direita em cima -->
-                <div class="absolute -top-4 -right-4 md:top-6 md:-right-10 z-20 animate-float-delayed">
-                    <!-- Container ajustado para o estilo da imagem: Fundo escuro, vidro e ícone grande -->
-                    <div class="glass-icon p-4 rounded-2xl bg-[#1e1e1e]/90 border border-white/5 shadow-2xl backdrop-blur-xl">
-                         <svg class="h-10 w-auto" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
-                            <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98043 38 9.5 38H19V57C16.4804 57 14.0641 55.9991 12.2825 54.2175C10.5009 52.4359 9.5 50.0196 9.5 47.5L0 47.5Z" fill="#0ACF83"/>
-                            <path d="M19 0V19H9.5C6.98043 19 4.56408 17.9991 2.78249 16.2175C1.00089 14.4359 0 12.0196 0 9.5C0 6.98043 1.00089 4.56408 2.78249 2.78249C4.56408 1.00089 6.98043 0 9.5 0H19Z" fill="#F24E1E"/>
-                            <path d="M0 28.5C0 25.9804 1.00089 23.5641 2.78249 21.7825C4.56408 20.0009 6.98043 19 9.5 19H19V38H9.5C6.98043 38 4.56408 36.9991 2.78249 35.2175C1.00089 33.4359 0 31.0196 0 28.5Z" fill="#A259FF"/>
-                            <path d="M38 9.5C38 14.7467 33.7467 19 28.5 19H19V0H28.5C33.7467 0 38 4.25329 38 9.5Z" fill="#FF7262"/>
-                        </svg>
+                    <!-- FOTO PRINCIPAL -->
+                    <!-- Efeito de brilho colorido atrás da foto mais forte -->
+                    <div class="absolute inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full blur-2xl opacity-40 animate-pulse-slow"></div>
+                    
+                    <!-- Imagem com anel de vidro -->
+                    <div class="relative w-full h-full rounded-full p-2 bg-gradient-to-b from-white/10 to-white/0 backdrop-blur-sm border border-white/10 shadow-2xl">
+                         <img src="Img/WhatsApp Image 2025-09-17 at 20.32.07.jpeg" alt="Foto de Nicolas Villela" class="w-full h-full object-cover rounded-full border-4 border-slate-900/50 shadow-inner">
                     </div>
-                </div>
 
+                    <!-- ÍCONE 2 (FIGMA) - Direita Superior -->
+                    <div class="absolute -top-6 -right-2 md:top-4 md:-right-12 z-30 animate-float-delayed">
+                         <div class="glass-icon p-4 rounded-2xl bg-[#1e1e1e]/80 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center gap-3">
+                              <!-- Ícone Figma -->
+                              <svg class="h-8 w-auto drop-shadow-lg" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
+                                <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98043 38 9.5 38H19V57C16.4804 57 14.0641 55.9991 12.2825 54.2175C10.5009 52.4359 9.5 50.0196 9.5 47.5L0 47.5Z" fill="#0ACF83"/>
+                                <path d="M19 0V19H9.5C6.98043 19 4.56408 17.9991 2.78249 16.2175C1.00089 14.4359 0 12.0196 0 9.5C0 6.98043 1.00089 4.56408 2.78249 2.78249C4.56408 1.00089 6.98043 0 9.5 0H19Z" fill="#F24E1E"/>
+                                <path d="M0 28.5C0 25.9804 1.00089 23.5641 2.78249 21.7825C4.56408 20.0009 6.98043 19 9.5 19H19V38H9.5C6.98043 38 4.56408 36.9991 2.78249 35.2175C1.00089 33.4359 0 31.0196 0 28.5Z" fill="#A259FF"/>
+                                <path d="M38 9.5C38 14.7467 33.7467 19 28.5 19H19V0H28.5C33.7467 0 38 4.25329 38 9.5Z" fill="#FF7262"/>
+                            </svg>
+                            <div class="hidden md:block">
+                                <p class="text-xs text-slate-400 font-medium">Tool</p>
+                                <p class="text-sm text-white font-bold">Figma</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
-        <!-- ===== SEÇÃO SOBRE MIM ===== -->
-        <section id="sobre" class="py-20 bg-slate-800/30 rounded-3xl my-10 px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-8">
-                Sobre Mim
-            </h2>
-            <div class="flex flex-col items-center justify-center">
-                <div class="max-w-3xl text-slate-300 space-y-6 text-center text-lg leading-relaxed">
-                     <!-- EDITE O TEXTO SOBRE VOCÊ AQUI -->
-                    <p>
-                        Sou Product Designer com uma missão clara: criar produtos digitais que não apenas atendam às necessidades do negócio, mas que também ofereçam experiências significativas e intuitivas para as pessoas. Acredito que a tecnologia deve ser uma ponte para facilitar o dia a dia, e meu trabalho é construir essas pontes com empatia e estratégia.
-                    </p>
-                    <p>
-                        Meu processo de design é colaborativo e centrado no usuário, envolvendo pesquisa, ideação, prototipagem e testes contínuos. Tenho experiência em transformar desafios complexos em soluções simples e elegantes, sempre com foco em usabilidade, acessibilidade e inovação. Busco constantemente aprender e aplicar novas metodologias para entregar produtos que gerem impacto real.
-                    </p>
+        <!-- ===== SEÇÃO SOBRE MIM (Mantida estrutura, visual ajustado para consistência) ===== -->
+        <section id="sobre" class="py-20 relative overflow-hidden">
+             <!-- Fundo do card Sobre com borda sutil e gradiente -->
+            <div class="bg-slate-800/40 backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12 relative z-10">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-white mb-8">
+                    Sobre Mim
+                </h2>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="max-w-3xl text-slate-300 space-y-6 text-center text-lg leading-relaxed font-light">
+                        <p>
+                            Sou Product Designer com uma missão clara: criar produtos digitais que não apenas atendam às necessidades do negócio, mas que também ofereçam experiências significativas e intuitivas para as pessoas. Acredito que a tecnologia deve ser uma ponte para facilitar o dia a dia, e meu trabalho é construir essas pontes com empatia e estratégia.
+                        </p>
+                        <p>
+                            Meu processo de design é colaborativo e centrado no usuário, envolvendo pesquisa, ideação, prototipagem e testes contínuos. Tenho experiência em transformar desafios complexos em soluções simples e elegantes, sempre com foco em usabilidade, acessibilidade e inovação. Busco constantemente aprender e aplicar novas metodologias para entregar produtos que gerem impacto real.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ===== SEÇÃO DE PROJETOS ===== -->
         <section id="projetos" class="py-20">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-white mb-4">
                 Meus Projetos
             </h2>
             <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">Conheça um pouco do meu trabalho recente.</p>
@@ -214,28 +287,38 @@
               <!-- Grid de projetos -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-               <!-- PROJETO 1: Barbearia -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
+                <!-- PROJETO 1: Barbearia -->
+                <div class="bg-slate-800/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300 flex flex-col h-full hover:shadow-2xl hover:shadow-blue-900/10">
                     <!-- Imagem do Projeto -->
                     <div class="overflow-hidden relative">
                          <img src="Img/fotosistema.png" alt="Plataforma de Gestão e Agendamento para Barbearias" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+Barbearia';">
-                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
                     </div>
                     
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Sistema de Barbearia</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">Uma plataforma digital completa que moderniza a operação de barbearias. Oferece agendamento online intuitivo e um painel administrativo robusto.</p>
-                            <!-- Tecnologias Usadas -->
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">PHP</span>
-                                 <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                            
-                        </div>
+    <div class="flex-grow">
+        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+            Como reduzi um agendamento de 4 minutos para 45 segundos
+        </h3>
+        
+        <div class="mb-3">
+            <span class="inline-flex items-center rounded bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-400 border border-blue-500/20">
+                Sistema de Barbearia
+            </span>
+        </div>
+
+        <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+            Uma plataforma digital completa que moderniza a operação de barbearias. Oferece agendamento online intuitivo e um painel administrativo robusto.
+        </p>
+        
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">HTML</span>
+            <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">CSS</span>
+            <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">JS</span>
+            <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">PHP</span>
+             <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">Figma</span>
+        </div>
+    </div>
                         
                         <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
                             <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
@@ -253,88 +336,106 @@
                     </div>
                 </div>
 
-                <!-- PROJETO 2: Website Dream On -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
-                    <div class="overflow-hidden relative">
-                        <img src="Img/imagemprojeto_salão.png" alt="Website Dream On" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+Dream+On';">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                    </div>
+          <div class="bg-slate-800/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300 flex flex-col h-full hover:shadow-2xl hover:shadow-blue-900/10">
+    
+    <div class="overflow-hidden relative">
+        <img src="Img/imagemprojeto_salão.png" alt="Website Dream On" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Projeto+Dream+On';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+    </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Website Dream On</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                Desenvolvi o site responsivo do <strong>Dream On Salão de Festas</strong>, um portal elegante que permite agendamento fácil e exploração de galerias.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                        </div>
+    <div class="p-6 flex flex-col flex-grow">
+        <div class="flex-grow">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors leading-tight">
+                Centralizei o atendimento e aumentei a conversão de contratos
+            </h3>
 
-                        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
-                            <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
-                            <a href="projeto dream-on.html" 
-                               class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
-                                Ver Projeto
-                            </a>
+            <div class="mb-4">
+                <span class="bg-blue-900/30 border border-blue-500/30 text-blue-300 text-xs font-bold px-2 py-1 rounded">
+                    Portal de Eventos
+                </span>
+            </div>
 
-                            <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <p class="text-slate-400 mb-5 text-sm leading-relaxed">
+                Desenvolvi o site responsivo do <strong>Dream On Salão de Festas</strong>, um portal elegante que permite agendamento fácil e exploração de galerias.
+            </p>
 
-                <!-- PROJETO 3: Skate Vibe Pro (Atualizado) -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 flex flex-col h-full border border-slate-700/50">
-                    <div class="overflow-hidden relative">
-                        <img src="Img/Gemini_Generated_Image_86egab86egab86eg.png" alt="Skate Vibe Pro" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Skate+Vibe';">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                    </div>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">HTML</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">CSS</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">JS</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">Figma</span>
+            </div>
+        </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Loja Online Streetwear</h3>
-                            <p class="text-slate-400 mb-4 text-sm leading-relaxed">
-                                E-commerce web responsivo focado na cultura urbana, com catálogo dinâmico, carrinho de compras e fluxo completo de checkout.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">HTML</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">CSS</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">JavaScript</span>
-                                <span class="text-xs font-semibold bg-slate-900 border border-slate-700 text-blue-300 py-1 px-3 rounded-full">Figma</span>
-                            </div>
-                        </div>
+        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
+            <a href="projeto dream-on.html" 
+               class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
+                Ver Projeto
+            </a>
 
-                        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
-                            <!-- BOTÃO "VER PROJETO" CHAMATIVO -->
-                            <button
-                                onclick="document.getElementById('modal-breve').classList.remove('hidden')"
-                                class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
-                                Ver Projeto
-                            </button>
+            <a href="https://github.com/nicolasanalyst/Site-espaco-dream-on" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                GitHub
+            </a>
+        </div>
+    </div>
+</div>
 
-                            <a href="https://github.com/nicolasanalyst" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="bg-slate-800/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300 flex flex-col h-full hover:shadow-2xl hover:shadow-blue-900/10">
+    
+    <div class="overflow-hidden relative">
+        <img src="Img/Gemini_Generated_Image_86egab86egab86eg.png" alt="Skate Vibe Pro" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/3b82f6?text=Skate+Vibe';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+    </div>
+
+    <div class="p-6 flex flex-col flex-grow">
+        <div class="flex-grow">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors leading-tight">
+                Desenvolvi um fluxo de checkout completo que simplifica a jornada de compra
+            </h3>
+
+            <div class="mb-4">
+                <span class="bg-blue-900/30 border border-blue-500/30 text-blue-300 text-xs font-bold px-2 py-1 rounded">
+                    E-commerce Streetwear
+                </span>
+            </div>
+
+            <p class="text-slate-400 mb-5 text-sm leading-relaxed">
+                E-commerce web responsivo focado na cultura urbana, com catálogo dinâmico, carrinho de compras e fluxo completo de checkout.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">HTML</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">CSS</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">JS</span>
+                <span class="text-xs font-medium bg-slate-900/50 border border-slate-700/50 text-slate-300 py-1 px-3 rounded-full">Figma</span>
+            </div>
+        </div>
+
+        <div class="flex gap-3 mt-auto pt-4 flex-col sm:flex-row">
+            <button
+                onclick="document.getElementById('modal-breve').classList.remove('hidden')"
+                class="btn-shine relative flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] text-center flex items-center justify-center gap-2 group/btn">
+                Ver Projeto
+            </button>
+
+            <a href="https://github.com/nicolasanalyst" target="_blank" class="flex-1 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors text-center flex items-center justify-center gap-2 text-sm">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                GitHub
+            </a>
+        </div>
+    </div>
+</div>
 
             </div>
         </section>
 
 
         <!-- ===== SEÇÃO: MINHAS HABILIDADES ===== -->
-        <section id="habilidades" class="py-20 bg-slate-900">
+        <section id="habilidades" class="py-20 relative">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-2">
                         Minhas Habilidades
                     </h2>
                     <p class="text-xl text-blue-400 font-medium">
@@ -346,93 +447,93 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                     
                     <!-- Card 1: UX Design -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UX Design</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">UX Design</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Transformo necessidades em experiências claras e funcionais.
+                            Experiências focadas nas necessidades reais do usuário.
                         </p>
                     </div>
 
                     <!-- Card 2: UI Design -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UI Design</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">UI Design</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Desenho interfaces bonitas, claras e fáceis de usar.
+                            Interfaces visualmente impactantes e consistentes.
                         </p>
                     </div>
 
                     <!-- Card 3: UX Research -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">UX Research</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">UX Research</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Investigo necessidades reais por meio de entrevistas e análises.
+                            Pesquisa baseada em dados e testes de usabilidade.
                         </p>
                     </div>
 
                     <!-- Card 4: Prototipação -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Prototipação</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">Prototipação</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                             Crio protótipos rápidos para validar ideias na prática.
+                             Validação rápida de ideias com protótipos interativos.
                         </p>
                     </div>
 
-                    <!-- Card 5: Testes de Usabilidade -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <!-- Card 5: Testes -->
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Testes de Usabilidade</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">Testes</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Testo soluções com usuários para descobrir o que melhorar.
+                            Garanto a qualidade da entrega final.
                         </p>
                     </div>
 
                     <!-- Card 6: Design System -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Design System</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">Design System</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Organizo padrões visuais para manter tudo consistente.
+                            Escalabilidade e consistência visual.
                         </p>
                     </div>
 
                     <!-- Card 7: Desenvolvimento Web -->
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-slate-700 hover:border-blue-500/50 flex flex-col items-center text-center group md:col-span-2 lg:col-span-2">
-                        <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/5 group-hover:ring-blue-500/50">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="bg-slate-800/40 border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:border-blue-500/30 flex flex-col items-center text-center group md:col-span-2 lg:col-span-2 hover:bg-slate-800/60">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300 ring-1 ring-blue-500/20 group-hover:ring-blue-500/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Desenvolvimento Web Responsivo</h3>
+                        <h3 class="text-lg font-bold text-white mb-2">Front-end Development</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Implemento sites responsivos e funcionais com HTML, CSS e JavaScript.
+                            Tradução fiel do design para código performático.
                         </p>
                     </div>
 
@@ -441,30 +542,33 @@
         </section>
 
          <!-- ===== SEÇÃO DE CONTATO ===== -->
-        <section id="contato" class="py-20 md:py-32 text-center bg-gradient-to-b from-slate-900 to-slate-800">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar?</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
-                Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um oi, sinta-se à vontade para entrar em contato!
+        <section id="contato" class="py-20 md:py-32 text-center relative overflow-hidden">
+             <!-- Efeito de fundo -->
+             <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent -z-10"></div>
+             
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Vamos Conversar?</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg font-light">
+                Estou sempre aberto a novas oportunidades e colaborações. <br>Se você tem um projeto em mente, vamos tirar do papel.
             </p>
             <!-- EDITE COM SEU E-MAIL -->
-            <a href="mailto:nicolas-villela@hotmail.com" class="inline-block text-lg py-4 px-10 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+            <a href="mailto:nicolas-villela@hotmail.com" class="inline-block text-lg py-4 px-10 bg-blue-600 hover:bg-blue-500 rounded-full text-white font-bold transition-all hover:scale-105 shadow-lg shadow-blue-600/30">
                 Mande um E-mail
             </a>
 
             <div class="mt-16 flex justify-center gap-8">
                
               <!-- EDITE o link 'href' com seu perfil do GitHub -->
-                <a href="https://github.com/nicolasanalyst" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
+                <a href="https://github.com/nicolasanalyst" target="_blank" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.29 2.72 7.922 6.44 9.312.47.087.642-.204.642-.453 0-.223-.008-.815-.012-1.598-2.64.574-3.196-1.272-3.196-1.272-.427-1.084-1.043-1.372-1.043-1.372-.853-.583.065-.57.065-.57.943.066 1.44.968 1.44.968.838 1.436 2.2 1.02 2.735.78.086-.606.328-1.02.6-1.256-2.088-.237-4.283-1.045-4.283-4.644 0-1.026.368-1.864 1.02-2.522-.102-.238-.442-1.192.097-2.484 0 0 .79-.253 2.585.96a8.94 8.94 0 012.35-.316c.79.004 1.58.108 2.35.316 1.794-1.213 2.583-.96 2.583-.96.54 1.292.2 2.246.1 2.484.652.658 1.018 1.496 1.018 2.522 0 3.61-2.198 4.398-4.292 4.634.337.29.638.86.638 1.732 0 1.25-.01 2.26-.01 2.568 0 .252.17.545.65.45C19.28 19.92 22 16.29 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                     <span class="sr-only">GitHub</span>
                 </a>
                  <!-- EDITE o link 'href' com seu perfil do LinkedIn -->
-                <a href="https://www.linkedin.com/in/villela-nicolas" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
+                <a href="https://www.linkedin.com/in/villela-nicolas" target="_blank" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span class="sr-only">LinkedIn</span>
                 </a>
                 <!-- EDITE o link 'href' com seu número do WhatsApp -->
-                <a href="https://wa.me/5519989132951" target="_blank" class="text-slate-400 hover:text-blue-400 hover:-translate-y-1 transition-all duration-300">
+                <a href="https://wa.me/5519989132951" target="_blank" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 13.593 2.422 15.114 3.181 16.469L2 22L7.695 20.875C8.98 21.609 10.45 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM9.805 8.016C10.031 7.5 9.93 7.234 9.766 7.078C9.6 6.922 9.289 6.797 9.031 6.797C8.766 6.797 8.523 6.797 8.305 6.797C8.086 6.797 7.781 6.875 7.555 7.172C7.328 7.461 6.602 8.148 6.602 9.328C6.602 10.516 7.547 11.641 7.703 11.828C7.867 12.023 9.422 14.469 11.828 15.586C14.242 16.711 14.813 16.414 15.227 16.367C15.641 16.32 16.633 15.742 16.852 15.109C17.078 14.469 17.078 13.922 17.008 13.781C16.938 13.641 16.773 13.578 16.531 13.469C16.289 13.359 15.023 12.75 14.789 12.656C14.547 12.562 14.391 12.516 14.227 12.812C14.07 13.117 13.609 13.664 13.477 13.828C13.336 13.984 13.203 14.008 12.961 13.906C12.711 13.805 11.758 13.469 10.648 12.5C9.75 11.711 9.172 10.758 9.031 10.5C8.891 10.234 9.008 10.109 9.125 9.992C9.234 9.875 9.383 9.703 9.523 9.547C9.672 9.391 9.719 9.289 9.805 9.109C9.898 8.922 9.852 8.758 9.781 8.641C9.711 8.523 9.242 7.375 9.031 6.875L9.805 8.016Z" /></svg>
                     <span class="sr-only">WhatsApp</span>
                 </a>
@@ -473,7 +577,7 @@
     </main>
 
     <!-- ===== RODAPÉ ===== -->
-    <footer class="bg-slate-900 border-t border-slate-800">
+    <footer class="bg-[#0f172a] border-t border-slate-800">
         <div class="container mx-auto px-6 py-8 text-center text-slate-500 text-sm">
             <p>&copy; 2026 <a href="#" class="font-semibold text-slate-400 hover:text-blue-400">Nicolas Villela</a>. Todos os direitos reservados.</p>
         </div>
@@ -499,7 +603,35 @@
         </div>
     </div>
 
-    <!-- Link para o seu arquivo JavaScript -->
-    <script src="script.js"></script>
+    <!-- Script corrigido e embutido (removemos o src="script.js" externo) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (btn && menu) {
+                // Toggle do menu
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Impede que o clique feche o menu imediatamente
+                    menu.classList.toggle('hidden');
+                });
+
+                // Fechar ao clicar nos links
+                const links = menu.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                    });
+                });
+
+                // Fechar ao clicar fora
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                        menu.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
